@@ -1,0 +1,90 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>{% trans "Sign in to Moneta Admin" %}</title>
+  <link rel="icon" href="{% static 'img/moneta-mark.svg' %}" type="image/svg+xml">
+  <style>
+    :root{color-scheme:light;--ink:#17211c;--muted:#718078;--green:#287653;--green-dark:#1e6043;--line:#e1e9e3;--surface:#fff;--soft:#f5f8f5;--danger:#b42323}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+    body{min-height:100vh;background:#f3f6f3;display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.86fr)}
+    .brand-panel{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(2rem,5vw,5rem);background:#14251c;color:#fff;min-height:100vh}
+    .brand-panel:before,.brand-panel:after{content:"";position:absolute;z-index:-1;border:1px solid rgba(175,220,187,.16);border-radius:50%;width:32rem;height:32rem;right:-10rem;top:16%;pointer-events:none}
+    .brand-panel:after{width:23rem;height:23rem;right:-5.5rem;top:22%}
+    .brand-mark{display:flex;align-items:center;gap:.8rem;color:#fff;text-decoration:none;font-size:1.35rem;font-weight:750;letter-spacing:-.04em}
+    .brand-mark img{width:2.8rem;height:2.8rem;border-radius:.9rem}
+    .brand-copy{max-width:38rem;margin:4rem 0}
+    .eyebrow{font-size:.72rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase;color:#a8d7b7}
+    .brand-copy h1{max-width:36rem;font-size:clamp(2.5rem,4.4vw,4.5rem);line-height:1.04;letter-spacing:-.065em;margin:1.2rem 0 1.3rem;font-weight:760}
+    .brand-copy p{max-width:31rem;color:#bdcfc2;font-size:1.03rem;line-height:1.8;margin:0}
+    .features{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.3rem}
+    .feature{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.045);padding:.7rem .9rem;border-radius:.8rem;color:#dce9df;font-size:.8rem}
+    .brand-footer{color:#8fa897;font-size:.75rem}
+    .form-panel{display:flex;align-items:center;justify-content:center;padding:clamp(1.25rem,4vw,4rem);min-width:0}
+    .login-card{width:100%;max-width:430px;background:var(--surface);border:1px solid var(--line);border-radius:1.35rem;padding:clamp(1.5rem,3vw,2.5rem);box-shadow:0 18px 55px rgba(20,45,28,.08)}
+    .mobile-brand{display:none;align-items:center;gap:.7rem;margin-bottom:2rem;font-size:1.25rem;font-weight:750;letter-spacing:-.04em}
+    .mobile-brand img{width:2.4rem;height:2.4rem}
+    .form-eyebrow{font-size:.7rem;font-weight:750;letter-spacing:.13em;color:var(--green);text-transform:uppercase;margin:0 0 .55rem}
+    h2{font-size:2rem;line-height:1.15;letter-spacing:-.05em;margin:0;font-weight:760}
+    .intro{color:var(--muted);font-size:.9rem;line-height:1.65;margin:.7rem 0 1.8rem}
+    .error-box{border:1px solid #fecaca;background:#fff1f1;color:var(--danger);padding:.8rem .9rem;border-radius:.8rem;font-size:.82rem;line-height:1.5;margin-bottom:1rem}
+    .field{margin-bottom:1.1rem}
+    label{display:block;font-size:.82rem;font-weight:650;color:#39483e;margin-bottom:.45rem}
+    input[type=text],input[type=password]{display:block;width:100%;min-height:3rem;padding:.75rem .9rem;border:1px solid #d7e1d9;border-radius:.75rem;background:#fbfcfb;color:var(--ink);font:inherit;font-size:.9rem;outline:none;transition:border-color .15s,box-shadow .15s}
+    input:focus{border-color:#5d9b76;box-shadow:0 0 0 4px rgba(40,118,83,.12)}
+    .submit{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;min-height:3.1rem;border:1px solid var(--green);border-radius:.8rem;background:var(--green);color:white;font:inherit;font-size:.9rem;font-weight:700;margin-top:1.5rem;cursor:pointer;transition:background .15s,transform .15s}
+    .submit:hover{background:var(--green-dark);transform:translateY(-1px)}
+    .submit:focus-visible{outline:3px solid rgba(40,118,83,.3);outline-offset:3px}
+    .secure-note{display:flex;gap:.6rem;align-items:flex-start;margin-top:1.2rem;color:#7a887e;font-size:.75rem;line-height:1.55}
+    .secure-note svg{width:1rem;height:1rem;flex:none;margin-top:.1rem}
+    .back-link{display:inline-block;margin-top:1.4rem;color:var(--green);font-size:.82rem;font-weight:650;text-decoration:none}
+    .back-link:hover{text-decoration:underline}
+    @media(max-width:850px){body{display:block;background:#f3f6f3}.brand-panel{display:none}.form-panel{min-height:100vh;padding:1.25rem}.login-card{max-width:460px}.mobile-brand{display:flex}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <aside class="brand-panel" aria-label="Moneta administration">
+    <a class="brand-mark" href="{% url 'admin:login' %}"><img src="{% static 'img/moneta-mark.svg' %}" alt=""><span>Moneta</span></a>
+    <div class="brand-copy">
+      <p class="eyebrow">{% trans "Administration" %}</p>
+      <h1>{% trans "A clearer view of your financial platform." %}</h1>
+      <p>{% trans "Manage users, accounts and financial activity from one secure workspace." %}</p>
+      <div class="features" aria-label="Admin features"><span class="feature">{% trans "User management" %}</span><span class="feature">{% trans "Financial records" %}</span><span class="feature">{% trans "System overview" %}</span></div>
+    </div>
+    <div class="brand-footer">Moneta · {% trans "Administration workspace" %}</div>
+  </aside>
+  <main class="form-panel">
+    <section class="login-card" aria-labelledby="login-title">
+      <a class="mobile-brand" href="{% url 'admin:login' %}"><img src="{% static 'img/moneta-mark.svg' %}" alt=""><span>Moneta Admin</span></a>
+      <p class="form-eyebrow">{% trans "Secure access" %}</p>
+      <h2 id="login-title">{% trans "Sign in to Admin" %}</h2>
+      <p class="intro">{% trans "Use your administrator account to continue." %}</p>
+      {% if form.errors %}<div class="error-box" role="alert">{% trans "The username or password is incorrect. Please try again." %}</div>{% endif %}
+      {% if form.non_field_errors %}<div class="error-box" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+      <form action="{{ app_path }}" method="post" id="login-form">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <div class="field">
+          <label for="id_username">{% trans "Username" %}</label>
+          <input id="id_username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required autofocus value="{{ form.username.value|default_if_none:'' }}">
+          {% if form.username.errors %}<div class="error-box" role="alert">{{ form.username.errors }}</div>{% endif %}
+        </div>
+        <div class="field">
+          <label for="id_password">{% trans "Password" %}</label>
+          <input id="id_password" name="password" type="password" autocomplete="current-password" required>
+          {% if form.password.errors %}<div class="error-box" role="alert">{{ form.password.errors }}</div>{% endif %}
+        </div>
+        {% url 'admin:index' as admin_index_url %}
+        <button class="submit" type="submit">{% trans "Log in" %}<span aria-hidden="true">→</span></button>
+      </form>
+      <div class="secure-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>{% trans "This area is restricted to authorized administrators." %}</span></div>
+      <a class="back-link" href="/">← {% trans "Back to Moneta" %}</a>
+    </section>
+  </main>
+</body>
+</html>

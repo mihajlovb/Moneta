@@ -1,0 +1,38 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="admin-welcome">
+  <h1>{% trans "Finance Management Dashboard" %}</h1>
+  <p>{% trans "Manage your users, accounts and financial activity." %}</p>
+</div>
+<div class="admin-stats">
+  {% for stat in admin_stats %}
+  <article class="admin-stat">
+    <span class="admin-stat-icon" aria-hidden="true">{{ stat.icon }}</span>
+    <span class="admin-stat-label">{{ stat.label }}</span>
+    <strong style="--stat-color:{{ stat.color }}">{{ stat.value }}</strong>
+  </article>
+  {% endfor %}
+</div>
+<div class="admin-apps">
+  {% for app in app_list %}
+    <section class="module admin-app">
+      <h2><a href="{{ app.app_url }}">{{ app.name }}</a></h2>
+      <table>
+        <tbody>
+          {% for model in app.models %}
+          <tr class="model-{{ model.object_name|lower }}">
+            <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+            <td>{% if model.add_url %}<a href="{{ model.add_url }}" class="addlink">{% trans "Add" %}</a>{% endif %}</td>
+            <td>{% if model.admin_url %}<a href="{{ model.admin_url }}" class="changelink">{% trans "View" %}</a>{% endif %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  {% empty %}
+    <p>{% trans "You don’t have permission to view or edit anything." %}</p>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% load i18n l10n %}
+{% block title %}{{ title }} · Moneta{% endblock %}
+{% block content %}
+<div class="form-page"><a href="{% url 'finance:accounts' %}" class="back-link"><i data-lucide="arrow-left"></i> {% trans "Back to accounts" %}</a><div class="form-intro"><span class="icon-tile"><i data-lucide="wallet"></i></span><div><p class="eyebrow">{% trans "ACCOUNT DETAILS" %}</p><h1>{{ title }}</h1><p class="page-subtitle">{% trans "Keep your account details accurate so your financial overview stays useful." %}</p></div></div>
+<form method="post" class="surface-card form-card">{% csrf_token %}{% if form.non_field_errors %}<div class="form-error">{{ form.non_field_errors }}</div>{% endif %}<div class="form-section-title"><h2>{% trans "Account information" %}</h2><p>{% trans "Choose a name and account type, then enter the starting balance." %}</p></div>
+<div class="form-grid"><div class="form-field"><label for="{{ form.name.id_for_label }}">{% trans "Account name" %}</label>{{ form.name }}{% if form.name.errors %}<p class="field-error">{{ form.name.errors|striptags }}</p>{% endif %}</div><div class="form-field"><label for="{{ form.type.id_for_label }}">{% trans "Account type" %}</label>{{ form.type }}{% if form.type.errors %}<p class="field-error">{{ form.type.errors|striptags }}</p>{% endif %}</div><div class="form-field" id="debit-card-option"><label class="setting-check">{{ form.has_debit_card }}<span><strong>{% trans "Debit card linked to this account" %}</strong><small>{% trans "The card uses this account balance; it is not a separate account or extra money." %}</small></span></label>{% if form.has_debit_card.errors %}<p class="field-error">{{ form.has_debit_card.errors|striptags }}</p>{% endif %}</div><div class="form-field"><label for="{{ form.initial_balance.id_for_label }}">{% trans "Opening balance" %}</label>{{ form.initial_balance }}<p class="field-help">{% trans "Enter the balance at the time you start tracking this account." %}</p>{% if form.initial_balance.errors %}<p class="field-error">{{ form.initial_balance.errors|striptags }}</p>{% endif %}</div><div class="form-field"><label for="{{ form.currency.id_for_label }}">{% trans "Account currency" %}</label>{{ form.currency }}<p class="field-help">{% trans "This is the currency of the account itself." %}</p>{% if form.currency.errors %}<p class="field-error">{{ form.currency.errors|striptags }}</p>{% endif %}</div><div class="form-field"><label for="{{ form.color.id_for_label }}">{% trans "Account color" %}</label><div class="color-field">{{ form.color }}<span class="field-help">{% trans "Used to identify this account in the interface." %}</span></div></div></div>
+<label class="setting-check mt-5">{{ form.include_in_net_worth }}<span><strong>{% trans "Include in net worth" %}</strong><small>{% trans "Count this account in your total assets and liabilities." %}</small></span></label>
+<div class="form-actions"><a href="{% url 'finance:accounts' %}" class="btn-secondary">{% trans "Cancel" %}</a><button type="submit" class="btn-primary"><i data-lucide="check"></i> {% trans "Save account" %}</button></div></form></div>
+<script>{% localize off %}
+(function () {
+  const typeSelect = document.getElementById('{{ form.type.id_for_label }}');
+  const cardOption = document.getElementById('debit-card-option');
+  function syncPaymentInstrument() {
+    if (!typeSelect || !cardOption) return;
+    const show = typeSelect.value === 'checking';
+    cardOption.hidden = !show;
+    if (!show) {
+      const checkbox = cardOption.querySelector('input[type="checkbox"]');
+      if (checkbox) checkbox.checked = false;
+    }
+  }
+  if (typeSelect) { typeSelect.addEventListener('change', syncPaymentInstrument); syncPaymentInstrument(); }
+})();
+{% endlocalize %}</script>
+{% endblock %}

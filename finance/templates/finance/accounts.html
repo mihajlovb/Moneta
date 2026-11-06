@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Accounts" %} · Moneta{% endblock %}
+{% block content %}
+<section class="page-heading">
+  <div><p class="eyebrow">{% trans "YOUR MONEY" %}</p><h1>{% trans "Accounts" %}</h1><p class="page-subtitle">{% trans "See where your money lives and how your balances add up." %}</p></div>
+  <a href="{% url 'finance:account_add' %}" class="btn-primary"><span aria-hidden="true">＋</span> {% trans "Add account" %}</a>
+</section>
+<div class="surface-card flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-5">
+  <div><h2 class="section-heading">{% trans "Your accounts" %}</h2><p class="muted-copy">{% trans "Manage account details and check each balance in its original currency." %}</p></div>
+  <span class="pill-neutral">{{ account_count }} {% trans "accounts" %}</span>
+</div>
+<div class="flex items-center justify-between gap-3 mb-3"><div><h2 class="section-heading">{% trans "Accounts by type" %}</h2><p class="muted-copy">{% trans "Select a group to expand or collapse it. Edit any account to update its details." %}</p></div><span class="pill-neutral">{% trans "Account overview" %}</span></div>
+{% for g in account_groups %}{% if g.accounts %}
+<section class="surface-card p-0 mb-3 acc-section open" id="grp-{{ g.key }}">
+ <button type="button" onclick="toggleSection('grp-{{ g.key }}')" class="w-full flex items-center justify-between gap-4 p-4 sm:p-5 text-left hover:bg-slate-50/80 dark:hover:bg-slate-700/30 rounded-2xl transition">
+  <span class="flex items-center gap-3 min-w-0"><span class="icon-tile"><i data-lucide="{{ g.icon }}"></i></span><span class="min-w-0"><strong class="block">{{ g.label }}</strong><span class="muted-copy">{{ g.accounts|length }} {% trans "accounts" %}</span></span></span><span class="flex items-center gap-3"><strong class="text-base sm:text-lg {% if g.is_liability %}text-rose-600{% else %}text-slate-800 dark:text-slate-100{% endif %}">{{ g.display_total|floatformat:"0g" }} {{ display_currency }}</strong><i data-lucide="chevron-down" class="acc-section-chevron w-4 h-4"></i></span>
+ </button>
+ <div class="acc-section-body border-t border-slate-100 dark:border-slate-700">
+ {% for acc in g.accounts %}<div class="account-row"><span class="account-avatar" style="--account-color:{{ acc.color }}">{{ acc.name|first|upper }}</span><div class="flex-1 min-w-0"><p class="font-semibold truncate">{{ acc.name }}</p><p class="muted-copy">{{ acc.get_type_display }} · {{ acc.currency }}{% if acc.has_debit_card %} · {% trans "Debit card linked" %}{% endif %}</p></div><div class="text-right"><p class="font-semibold {% if acc.current_balance < 0 %}text-rose-600{% endif %}">{{ acc.current_balance|floatformat:"2g" }}</p><p class="muted-copy">{{ acc.currency }}</p></div><a href="{% url 'finance:account_edit' acc.pk %}" class="icon-button" aria-label="{% trans 'Edit account' %}" title="{% trans 'Edit account' %}"><i data-lucide="pencil"></i></a></div>{% endfor %}
+ </div>
+</section>{% endif %}{% empty %}<div class="empty-state"><span class="empty-icon"><i data-lucide="wallet"></i></span><h3>{% trans "Start with your first account" %}</h3><p>{% trans "Add a bank account, cash wallet, savings account or credit card to see your financial picture here." %}</p><a href="{% url 'finance:account_add' %}" class="btn-primary">＋ {% trans "Add account" %}</a></div>{% endfor %}
+<script>function toggleSection(id){document.getElementById(id).classList.toggle('open');}</script>
+{% endblock %}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moneta — Документација · Дизајн на интеракција човек-компјутер</title>
+  <link rel="icon" href="img/moneta-mark.svg">
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#fff; --accent:#4f46e5; --green:#477a61; }
+    @media (prefers-color-scheme: dark) { :root { --ink:#e2e8f0; --muted:#94a3b8; --line:#334155; --bg:#0f172a; --card:#1e293b; --accent:#818cf8; } }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+    a { color:var(--accent); }
+    .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+    header { background:#17251f; color:#fff; padding:56px 0 48px; }
+    header .brand { display:flex; align-items:center; gap:12px; font-weight:700; font-size:22px; }
+    header .brand img { width:40px; height:40px; border-radius:12px; }
+    header h1 { font-size:clamp(28px,4vw,44px); line-height:1.15; margin:24px 0 12px; max-width:760px; }
+    header p { color:#cbd5e1; max-width:680px; margin:0; }
+    .cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:10px 18px; border-radius:12px; font-weight:600; text-decoration:none; }
+    .btn.primary { background:var(--green); color:#fff; }
+    .btn.ghost { border:1px solid rgba(255,255,255,.25); color:#fff; }
+    .btn:focus-visible { outline:3px solid #a5b4fc; outline-offset:2px; }
+    .login { margin-top:20px; display:inline-block; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; padding:10px 14px; font-size:14px; color:#e2e8f0; }
+    code { background:rgba(100,116,139,.15); padding:1px 6px; border-radius:6px; font-size:.92em; }
+    .login code { background:rgba(255,255,255,.12); }
+    nav.toc { position:sticky; top:0; z-index:5; background:var(--card); border-bottom:1px solid var(--line); }
+    nav.toc .wrap { display:flex; gap:20px; overflow-x:auto; padding-top:12px; padding-bottom:12px; font-size:14px; white-space:nowrap; }
+    nav.toc a { color:var(--muted); text-decoration:none; font-weight:600; }
+    nav.toc a:hover { color:var(--accent); }
+    section { padding:48px 0 8px; }
+    h2 { font-size:26px; margin:0 0 8px; }
+    .lead { color:var(--muted); margin:0 0 24px; max-width:720px; }
+    .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 20px; }
+    .card h3 { margin:0 0 6px; font-size:16px; }
+    .card p { margin:0; color:var(--muted); font-size:14px; }
+    table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; font-size:15px; }
+    th, td { text-align:left; vertical-align:top; padding:12px 14px; border-bottom:1px solid var(--line); }
+    th { background:rgba(100,116,139,.08); font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+    tr:last-child td { border-bottom:0; }
+    td:first-child { font-weight:600; width:30%; }
+    ol.steps { padding-left:22px; }
+    ol.steps li { margin-bottom:10px; }
+    figure { margin:0 0 28px; }
+    figure img { width:100%; height:auto; border-radius:14px; border:1px solid var(--line); display:block; background:#fff; }
+    figcaption { font-size:14px; color:var(--muted); margin-top:8px; }
+    .gallery { display:grid; gap:20px; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
+    .gallery figure img { max-height:420px; object-fit:cover; object-position:top; }
+    pre { background:#0f172a; color:#e2e8f0; padding:16px 18px; border-radius:12px; overflow-x:auto; font-size:14px; }
+    .note { border-left:4px solid var(--accent); background:var(--card); padding:12px 16px; border-radius:8px; color:var(--muted); font-size:15px; }
+    footer { margin-top:56px; padding:28px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><img src="img/moneta-mark.svg" alt="">Moneta</div>
+    <h1>Табла за лични финансии со фокус на корисничкото искуство</h1>
+    <p>Проект по предметот <strong>Дизајн на интеракција човек-компјутер</strong>, ФИНКИ. Django апликација за следење сметки, трансакции, буџети и цели за штедење, со редизајниран, пристапен и респонзивен интерфејс на англиски и македонски јазик.</p>
+    <div class="cta">
+      <a class="btn primary" data-app-link href="https://moneta.onrender.com">Отвори ја апликацијата →</a>
+      <a class="btn ghost" href="https://github.com/mihajlovb/moneta">Изворен код на GitHub</a>
+    </div>
+    <div class="login">Демо најава: корисничко име <code>demo</code> · лозинка <code>demo1234</code></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Содржина">
+  <div class="wrap">
+    <a href="#pregled">Преглед</a><a href="#funkcii">Функционалности</a><a href="#hci">HCI принципи</a><a href="#izgled">Изглед</a><a href="#testiranje">Тестирање</a><a href="#lokalno">Локално</a><a href="#tehnologii">Технологии</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="pregled">
+    <h2>Преглед</h2>
+    <p class="lead">Moneta им овозможува на студенти и млади вработени за неколку секунди да видат колку пари имаат, каде трошат и дали се во рамките на својот план.</p>
+    <div class="note">Апликацијата е објавена на бесплатниот план на Render. Серверот заспива по 15 минути неактивност, па првото отворање може да трае до една минута. Демо-податоците се враќаат на почетна состојба при секое рестартирање, така што слободно може да се внесуваат и бришат записи.</div>
+  </section>
+
+  <section id="funkcii">
+    <h2>Функционалности</h2>
+    <p class="lead">Девет страници, достапни од страничната лента на десктоп или од долната навигација на мобилен.</p>
+    <div class="grid">
+      <div class="card"><h3>Почетна (Dashboard)</h3><p>Нето-вредност, приходи, трошоци и стапка на штедење со споредба со претходниот месец; паричен тек за 6 месеци; трошоци по категорија.</p></div>
+      <div class="card"><h3>Трансакции</h3><p>Групирани по ден, пребарување, брзи филтри, резиме, страничење; додавање, уредување и бришење со потврда.</p></div>
+      <div class="card"><h3>Сметки</h3><p>Групирани по тип (тековни, кеш, штедни, кредитни картички), салдо во оригинална валута, поврзана дебитна картичка.</p></div>
+      <div class="card"><h3>Буџети</h3><p>Месечен лимит по категорија со лента на напредок и статус: во ред, блиску до лимит, над буџет.</p></div>
+      <div class="card"><h3>Цели</h3><p>Цели за штедење со процент, преостанат износ и број на денови до рокот.</p></div>
+      <div class="card"><h3>Повторувачки плаќања</h3><p>Претплати и редовни плаќања, проценет месечен трошок и календар.</p></div>
+      <div class="card"><h3>Извештаи</h3><p>Паричен тек за 12 месеци, трошоци по категорија и кумулативно нето-трошење.</p></div>
+      <div class="card"><h3>Пазари</h3><p>Цени на акции, индекси и криптовалути со график по период (Yahoo Finance).</p></div>
+      <div class="card"><h3>Поставки</h3><p>Профил, валута за приказ, светла/темна тема, јазик, известувања, CSV-извоз, промена на лозинка.</p></div>
+    </div>
+  </section>
+
+  <section id="hci">
+    <h2>Применети HCI принципи</h2>
+    <p class="lead">Интерфејсот ги следи хевристиките на Нилсен и основните барања за пристапност (WCAG).</p>
+    <table>
+      <thead><tr><th>Принцип</th><th>Решение во Moneta</th></tr></thead>
+      <tbody>
+        <tr><td>Видливост на состојбата</td><td>Пораки по секоја акција, означена активна страница, ленти на напредок за буџети, цели и штедење.</td></tr>
+        <tr><td>Совпаѓање со реалниот свет</td><td>Сметки како во реалноста; кредитниот долг се одзема од нето-вредноста; броеви и датуми форматирани според јазикот.</td></tr>
+        <tr><td>Контрола и слобода</td><td>„Откажи“ и линк назад во секоја форма; бришењето бара потврда.</td></tr>
+        <tr><td>Конзистентност</td><td>Исти компоненти и бои насекаде: зелена за приход, црвена за трошок; ист распоред на заглавјата.</td></tr>
+        <tr><td>Превенција на грешки</td><td>Нативни избирачи за датум и месец, минимален износ, забрана на дупли буџети.</td></tr>
+        <tr><td>Препознавање наместо паметење</td><td>Опис под секое поле, икони и бои по категорија, трансакции групирани по ден.</td></tr>
+        <tr><td>Флексибилност и ефикасност</td><td>Брзи акции на почетната, филтри со еден клик, пребарување, CSV-извоз.</td></tr>
+        <tr><td>Минималистички дизајн</td><td>Јасна хиерархија: нето-вредноста е најистакната, потоа клучните бројки, па деталите.</td></tr>
+        <tr><td>Помош при грешки</td><td>Грешките се прикажуваат под полето со разбирлив текст.</td></tr>
+        <tr><td>Празни состојби</td><td>Секој празен дел објаснува што ќе се појави и нуди линк за првиот чекор.</td></tr>
+        <tr><td>Пристапност</td><td>Еден <code>&lt;h1&gt;</code> по страница, поврзани <code>&lt;label&gt;</code>, <code>role="progressbar"</code>, опис на графиците, видлив фокус, текстуална ознака на копчињата со икона.</td></tr>
+        <tr><td>Респонзивност и јазик</td><td>Мобилен распоред под 1024 px без хоризонтално лизгање на 390 px; темна тема; целосен превод на македонски.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="izgled">
+    <h2>Изглед на апликацијата</h2>
+    <p class="lead">Снимки од екранот со демо-податоците.</p>
+    <figure><img src="img/dashboard.jpg" alt="Почетна страница со нето-вредност, паричен тек, буџети и последни трансакции" loading="lazy"><figcaption>Почетна страница (светла тема)</figcaption></figure>
+    <div class="gallery">
+      <figure><img src="img/dashboard-dark.jpg" alt="Почетна страница во темна тема" loading="lazy"><figcaption>Темна тема</figcaption></figure>
+      <figure><img src="img/dashboard-mk.jpg" alt="Почетна страница на македонски јазик" loading="lazy"><figcaption>Македонски јазик</figcaption></figure>
+      <figure><img src="img/transactions.jpg" alt="Листа на трансакции групирани по ден" loading="lazy"><figcaption>Трансакции</figcaption></figure>
+      <figure><img src="img/accounts.jpg" alt="Сметки групирани по тип" loading="lazy"><figcaption>Сметки</figcaption></figure>
+      <figure><img src="img/budgets.jpg" alt="Буџети со ленти на напредок" loading="lazy"><figcaption>Буџети</figcaption></figure>
+      <figure><img src="img/goals.jpg" alt="Цели за штедење" loading="lazy"><figcaption>Цели</figcaption></figure>
+      <figure><img src="img/reports.jpg" alt="Извештаи со графици" loading="lazy"><figcaption>Извештаи</figcaption></figure>
+      <figure><img src="img/recurring.jpg" alt="Повторувачки плаќања и календар" loading="lazy"><figcaption>Повторувачки плаќања</figcaption></figure>
+      <figure><img src="img/validation.jpg" alt="Форма за трансакција со пораки за грешка" loading="lazy"><figcaption>Валидација на форма</figcaption></figure>
+      <figure><img src="img/settings.jpg" alt="Поставки" loading="lazy"><figcaption>Поставки</figcaption></figure>
+      <figure><img src="img/login.jpg" alt="Страница за најава" loading="lazy"><figcaption>Најава</figcaption></figure>
+      <figure><img src="img/mobile.jpg" alt="Мобилен приказ на почетната и трансакциите" loading="lazy"><figcaption>Мобилен приказ (390 px)</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="testiranje">
+    <h2>Упатство за тестирање</h2>
+    <p class="lead">Седум сценарија, околу 10 минути. Најава со <code>demo</code> / <code>demo1234</code>.</p>
+    <ol class="steps">
+      <li><strong>Преглед.</strong> На почетната прочитајте ја нето-вредноста и споредбата со претходниот месец; поминете со глушецот преку графикот.</li>
+      <li><strong>Нова трансакција.</strong> „Add transaction“ → трошок од 500 MKD за „Храна и пазарење“. Очекувано: порака за успех и ажуриран буџет.</li>
+      <li><strong>Валидација.</strong> Зачувајте трансакција без износ, или втор буџет за иста категорија и месец. Очекувано: порака под полето, ништо не се зачувува.</li>
+      <li><strong>Филтри и извоз.</strong> Во Transactions изберете „Expenses“ и пребарајте „Netflix“; во Settings → Data &amp; Privacy преземете CSV.</li>
+      <li><strong>Цел.</strong> Направете цел и изменете ја така што „заштедено“ ја достигнува целта. Очекувано: порака за достигната цел.</li>
+      <li><strong>Јазик и тема.</strong> „MK“ и „Dark“ во страничната лента. Очекувано: целиот интерфејс, броевите и графиците на македонски и во темни бои.</li>
+      <li><strong>Мобилен.</strong> Отворете на телефон или во DevTools на 390 px и навигирајте преку долната лента.</li>
+    </ol>
+  </section>
+
+  <section id="lokalno">
+    <h2>Локално стартување</h2>
+    <p class="lead">Потребен е Python 3.12 или понов.</p>
+<pre><code>git clone https://github.com/mihajlovb/moneta.git
+cd moneta
+python -m venv .venv
+.venv\Scripts\activate          # Linux/macOS: source .venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py seed_demo       # demo / demo1234
+python manage.py runserver</code></pre>
+    <p>Потоа отворете <code>http://127.0.0.1:8000</code>. Автоматските тестови: <code>python manage.py test</code>.</p>
+  </section>
+
+  <section id="tehnologii">
+    <h2>Технологии</h2>
+    <div class="grid">
+      <div class="card"><h3>Backend</h3><p>Python, Django 5.2+, django-filter, SQLite</p></div>
+      <div class="card"><h3>Frontend</h3><p>Django шаблони, Tailwind CSS, Chart.js, Lucide икони</p></div>
+      <div class="card"><h3>Објавување</h3><p>Render (gunicorn + WhiteNoise), GitHub Pages за документацијата</p></div>
+      <div class="card"><h3>Интернационализација</h3><p>Django i18n: англиски и македонски, локализирани броеви и датуми</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Moneta · Борјан Михајлов · ФИНКИ · Дизајн на интеракција човек-компјутер, 2026</div>
+</footer>
+
+<script>
+  // Единствено место за промена на адресата на апликацијата.
+  const APP_URL = 'https://moneta.onrender.com';
+  document.querySelectorAll('[data-app-link]').forEach(a => { a.href = APP_URL; });
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{% extends 'admin/base.html' %}
+{% load i18n static %}
+
+{% block title %}{{ title }} |  Moneta Admin{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+  <a href="{% url 'admin:index' %}" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <img src="{% static 'img/moneta-mark.svg' %}" alt="Moneta" style="width:34px;height:34px;border-radius:10px">
+    <span style="color:#fff;font-size:1.2rem;font-weight:700;letter-spacing:-.02em">Moneta</span>
+    <span style="background:rgba(255,255,255,.15);color:#fff;font-size:10px;font-weight:600;padding:2px 7px;border-radius:99px;letter-spacing:.05em">ADMIN</span>
+  </a>
+</div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+  :root {
+    --primary: #6366F1;
+    --primary-fg: #fff;
+    --secondary: #4F46E5;
+    --accent: #818CF8;
+    --header-bg: #0F172A;
+    --header-link-color: #CBD5E1;
+    --breadcrumbs-bg: #1E293B;
+    --breadcrumbs-fg: #94A3B8;
+    --link-fg: #6366F1;
+    --link-hover-color: #4F46E5;
+    --body-bg: #F1F5F9;
+    --body-fg: #1E293B;
+    --darkened-bg: #E2E8F0;
+    --selected-bg: #EEF2FF;
+    --border-color: #CBD5E1;
+    --hairline-color: #E2E8F0;
+    --button-bg: #6366F1;
+    --button-fg: #fff;
+    --default-button-bg: #6366F1;
+    --default-button-fg: #fff;
+    --close-button-bg: #EF4444;
+  }
+
+  #header { background: #0F172A !important; box-shadow: 0 1px 0 rgba(255,255,255,.05); }
+  #header a:link, #header a:visited { color: #CBD5E1 !important; }
+  #branding h1 { color: #fff !important; }
+  div.breadcrumbs { background: #1E293B; color: #94A3B8; padding: 10px 20px; }
+  div.breadcrumbs a { color: #818CF8; }
+
+  /* Module headers */
+  .module h2, .module caption, .inline-group h2 {
+    background: #6366F1 !important;
+    color: #fff !important;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: .03em;
+  }
+
+  /* Content area */
+  #content { padding: 20px 28px; }
+  .module { border-radius: 12px !important; overflow: hidden; border: 1px solid #E2E8F0 !important; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+
+  /* Buttons */
+  .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #6366F1 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    transition: background .15s !important;
+  }
+  .button:hover, input[type=submit]:hover { background: #4F46E5 !important; }
+  .button.default, input[type=submit].default { background: #10B981 !important; }
+  .deletelink { background: #EF4444 !important; }
+  a.deletelink:hover { background: #B91C1C !important; }
+
+  /* Table */
+  #result_list th { background: #F8FAFC; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #64748B; }
+  #result_list tr:hover td { background: #EEF2FF; }
+  #result_list tr.selected td { background: #E0E7FF; }
+  thead th a { color: #6366F1 !important; }
+
+  /* Change list filters */
+  #changelist-filter h2 { background: #6366F1 !important; color: #fff !important; border-radius: 8px 8px 0 0 !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: .08em !important; padding: 10px 14px !important; }
+  #changelist-filter { border-radius: 12px !important; border: 1px solid #E2E8F0 !important; }
+  #changelist-filter ul li a { color: #475569; font-size: 13px; }
+  #changelist-filter ul li a:hover { color: #6366F1; }
+  #changelist-filter ul li.selected a { color: #6366F1; font-weight: 600; }
+
+  /* Dashboard modules */
+  .dashboard #content-main .module td, .dashboard #content-main .module th { padding: 8px 14px; }
+  .app-finance .model-transaction td:first-child { font-weight: 600; }
+
+  /* Search */
+  #searchbar { border-radius: 8px !important; border-color: #CBD5E1 !important; padding: 8px 12px !important; font-size: 13px !important; }
+  #searchbar:focus { border-color: #6366F1 !important; outline: none !important; box-shadow: 0 0 0 3px rgba(99,102,241,.15) !important; }
+  .search-button { background: #6366F1 !important; border-radius: 0 8px 8px 0 !important; }
+
+  /* Nav sidebar */
+  #nav-sidebar { background: #0F172A !important; }
+  #nav-sidebar .current-app .section:link,
+  #nav-sidebar .current-app .section:visited { background: #1E293B !important; color: #818CF8 !important; }
+  .toggle-nav-sidebar { background: #1E293B !important; color: #94A3B8 !important; }
+
+  /* Login page */
+  body.login { background: #0F172A; }
+  body.login #content-main { background: #1E293B; border-radius: 16px; padding: 40px; border: 1px solid #334155; }
+  body.login #header { display: none; }
+
+  /* Keep the admin dashboard calm and easy to scan. */
+  #content { max-width: 1500px; margin: 0 auto; padding: 28px clamp(16px, 3vw, 40px); }
+  .admin-welcome { margin: 4px 0 24px; }
+  .admin-welcome h1 { margin: 0; color: #0f172a; font-size: 24px; font-weight: 700; letter-spacing: -.03em; }
+  .admin-welcome p { margin: 6px 0 0; color: #64748b; font-size: 14px; }
+  .admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin: 0 0 28px; }
+  .admin-stat { display: grid; grid-template-columns: 38px 1fr; align-items: center; column-gap: 12px; padding: 16px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 1px 3px #0f172a0a; }
+  .admin-stat-icon { grid-row: span 2; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: #eef2ff; color: #4f46e5; font-weight: 700; }
+  .admin-stat-label { color: #64748b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .admin-stat strong { color: var(--stat-color); font-size: 22px; line-height: 1.2; }
+  .admin-apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; align-items: start; }
+  .admin-app { margin: 0 !important; }
+  .admin-app h2 { background: #f8fafc !important; color: #334155 !important; border-bottom: 1px solid #e2e8f0; border-radius: 0 !important; }
+  .admin-app h2 a { color: inherit !important; }
+  .admin-app table { width: 100%; }
+  .admin-app th, .admin-app td { padding: 12px 14px !important; }
+  .admin-app th { font-weight: 600; }
+  .admin-app td { text-align: right; }
+  .admin-app .addlink, .admin-app .changelink { display: inline-block; margin-left: 8px; }
+  @media (max-width: 767px) { #content { padding: 18px 14px; } .admin-apps { grid-template-columns: 1fr; } }
+</style>
+{% endblock %}

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: moneta
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: bash start.sh
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.1
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_SUPERUSER_USERNAME
+        sync: false
+      - key: DJANGO_SUPERUSER_PASSWORD
+        sync: false

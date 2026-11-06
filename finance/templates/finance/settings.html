@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load i18n l10n %}
+{% block title %}{% trans "Settings" %} · Moneta{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-6xl">
+  <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">MONETA / ACCOUNT</p>
+      <h1 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">{% trans "Settings" %}</h1>
+      <p class="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">{% trans "Manage your profile, display preferences, notifications and account security." %}</p>
+    </div>
+
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-[210px_minmax(0,1fr)]">
+    <aside class="hidden lg:block">
+      <nav class="sticky top-6 space-y-1 rounded-2xl border border-slate-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-800" aria-label="Settings sections">
+        <a href="#profile" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"><i data-lucide="user-round" class="h-4 w-4 text-slate-400"></i>{% trans "Profile" %}</a>
+        <a href="#preferences" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"><i data-lucide="sliders-horizontal" class="h-4 w-4 text-slate-400"></i>{% trans "Preferences" %}</a>
+        <a href="#notifications" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"><i data-lucide="bell" class="h-4 w-4 text-slate-400"></i>{% trans "Notifications" %}</a>
+        <a href="#data" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"><i data-lucide="database" class="h-4 w-4 text-slate-400"></i>{% trans "Data & Privacy" %}</a>
+        <a href="#security" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"><i data-lucide="shield-check" class="h-4 w-4 text-slate-400"></i>{% trans "Security" %}</a>
+      </nav>
+    </aside>
+
+    <div class="min-w-0 space-y-5">
+      {% if settings_form.errors %}
+      <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300">
+        {% trans "Please check the fields marked below." %}
+      </div>
+      {% endif %}
+
+      <form method="post" class="space-y-5" id="settingsForm">
+        {% csrf_token %}
+
+        <section id="profile" class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-700 sm:px-6">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-white">{% trans "Profile" %}</h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{% trans "Update the personal details associated with your account." %}</p>
+          </div>
+          <div class="grid gap-4 p-5 sm:grid-cols-2 sm:p-6">
+            <div>
+              <label for="id_first_name" class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">{% trans "First name" %}</label>
+              {{ settings_form.first_name }}
+              {% for error in settings_form.first_name.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
+            </div>
+            <div>
+              <label for="id_last_name" class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">{% trans "Last name" %}</label>
+              {{ settings_form.last_name }}
+              {% for error in settings_form.last_name.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
+            </div>
+            <div class="sm:col-span-2">
+              <label for="id_email" class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">{% trans "Email address" %}</label>
+              {{ settings_form.email }}
+              {% for error in settings_form.email.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
+              <p class="mt-1.5 text-xs text-slate-400">{% trans "Used for account-related communication when email delivery is configured." %}</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="preferences" class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-700 sm:px-6">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-white">{% trans "Preferences" %}</h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{% trans "Choose how Moneta displays financial information." %}</p>
+          </div>
+          <div class="divide-y divide-slate-100 dark:divide-slate-700">
+            <div class="grid gap-2 px-5 py-4 sm:grid-cols-[minmax(0,1fr)_220px] sm:items-center sm:px-6">
+              <div>
+                <label for="id_preferred_currency" class="text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Display currency" %}</label>
+                <p class="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{% trans "Financial overview totals are converted to this currency. Individual transactions retain their account currency." %}</p>
+              </div>
+              {{ settings_form.preferred_currency }}
+              {% for error in settings_form.preferred_currency.errors %}<p class="text-xs text-red-600">{{ error }}</p>{% endfor %}
+            </div>
+            <div class="grid gap-2 px-5 py-4 sm:grid-cols-[minmax(0,1fr)_220px] sm:items-center sm:px-6">
+              <div>
+                <label for="id_theme" class="text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Appearance" %}</label>
+                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{% trans "Use a light or dark interface." %}</p>
+              </div>
+              {{ settings_form.theme }}
+              {% for error in settings_form.theme.errors %}<p class="text-xs text-red-600">{{ error }}</p>{% endfor %}
+            </div>
+          </div>
+        </section>
+
+        <section id="notifications" class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-700 sm:px-6">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-white">{% trans "Notifications" %}</h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{% trans "Save which reminders you would like to receive when notification delivery is enabled." %}</p>
+          </div>
+          <div class="divide-y divide-slate-100 dark:divide-slate-700">
+            <label for="id_budget_alerts" class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 sm:px-6">
+              <span><span class="block text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Budget reminders" %}</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{% trans "Remind me when a budget is close to its limit." %}</span></span>
+              <span class="relative inline-flex shrink-0 items-center"><span class="h-6 w-11 rounded-full bg-slate-200 transition dark:bg-slate-600" data-switch-track="id_budget_alerts"></span>{{ settings_form.budget_alerts }}<span class="pointer-events-none absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform" data-switch-dot="id_budget_alerts"></span></span>
+            </label>
+            <label for="id_transaction_alerts" class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 sm:px-6">
+              <span><span class="block text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Transaction activity" %}</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{% trans "Keep me informed about transaction activity." %}</span></span>
+              <span class="relative inline-flex shrink-0 items-center"><span class="h-6 w-11 rounded-full bg-slate-200 transition dark:bg-slate-600" data-switch-track="id_transaction_alerts"></span>{{ settings_form.transaction_alerts }}<span class="pointer-events-none absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform" data-switch-dot="id_transaction_alerts"></span></span>
+            </label>
+            <label for="id_weekly_summary" class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 sm:px-6">
+              <span><span class="block text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Weekly summary" %}</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{% trans "A weekly overview of income, spending and budgets." %}</span></span>
+              <span class="relative inline-flex shrink-0 items-center"><span class="h-6 w-11 rounded-full bg-slate-200 transition dark:bg-slate-600" data-switch-track="id_weekly_summary"></span>{{ settings_form.weekly_summary }}<span class="pointer-events-none absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform" data-switch-dot="id_weekly_summary"></span></span>
+            </label>
+          </div>
+        </section>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-800/60">
+          <p class="text-sm text-slate-500 dark:text-slate-400">{% trans "Your preferences are saved to your Moneta account." %}</p>
+          <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">{% trans "Save settings" %}</button>
+        </div>
+
+        {% if settings_form.errors %}
+        <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300">
+          {% for field in settings_form %}{% for error in field.errors %}<p>{{ field.label }}: {{ error }}</p>{% endfor %}{% endfor %}
+        </div>
+        {% endif %}
+      </form>
+
+      <section id="language" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <div class="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div><h2 class="text-base font-semibold text-slate-900 dark:text-white">{% trans "Language" %}</h2><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{% trans "Choose the language used throughout the interface." %}</p></div>
+          <form method="post" action="{% url 'set_language' %}" class="flex items-center gap-2">
+            {% csrf_token %}<input type="hidden" name="next" value="{{ request.path }}">
+            {% get_current_language as CURRENT_LANG %}
+            <select name="language" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">
+              <option value="en" {% if CURRENT_LANG == 'en' %}selected{% endif %}>English</option>
+              <option value="mk" {% if CURRENT_LANG == 'mk' %}selected{% endif %}>Македонски</option>
+            </select>
+            <button type="submit" class="rounded-xl border border-slate-200 px-3.5 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700">{% trans "Apply" %}</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="data" class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-700 sm:px-6">
+          <h2 class="text-base font-semibold text-slate-900 dark:text-white">{% trans "Data & Privacy" %}</h2>
+          <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{% trans "Export a copy of your data for your own records." %}</p>
+        </div>
+        <div class="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div><p class="text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Export transactions" %}</p><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{% trans "Download your transactions as a CSV spreadsheet." %}</p></div>
+          <a href="{% url 'finance:transactions' %}?export=csv" class="inline-flex items-center justify-center rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700">{% trans "Download CSV" %}<span class="ml-2" aria-hidden="true">↘</span></a>
+        </div>
+      </section>
+
+      <section id="security" class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-700 sm:px-6">
+          <h2 class="text-base font-semibold text-slate-900 dark:text-white">{% trans "Security" %}</h2>
+          <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{% trans "Protect your account and sign-in details." %}</p>
+        </div>
+        <div class="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div><p class="text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Password" %}</p><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{% trans "Change the password you use to sign in." %}</p></div>
+          <a href="{% url 'finance:password_change' %}" class="inline-flex items-center justify-center rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700">{% trans "Change password" %}<span class="ml-2" aria-hidden="true">→</span></a>
+        </div>
+        <div class="flex flex-col gap-4 border-t border-slate-100 px-5 py-5 dark:border-slate-700 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div><p class="text-sm font-medium text-slate-800 dark:text-slate-100">{% trans "Admin panel" %}</p><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{% trans "Administrative data management." %}</p></div>
+          {% if user.is_staff %}<a href="/admin/" class="text-sm font-semibold text-slate-700 hover:underline dark:text-slate-200">{% trans "Open admin" %} →</a>{% else %}<span class="text-xs text-slate-400">{% trans "Staff access only" %}</span>{% endif %}
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+<script>{% localize off %}
+(function () {
+  // Keep the quick-switch controls in sync with the saved preference and theme toggle.
+  const theme = "{{ preferred_theme|escapejs }}";
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  try { localStorage.setItem('theme', theme); } catch (e) {}
+  const ids = ['id_budget_alerts', 'id_transaction_alerts', 'id_weekly_summary'];
+  function syncSwitch(id) {
+    const input = document.getElementById(id);
+    const dot = document.querySelector('[data-switch-dot="' + id + '"]');
+    const track = document.querySelector('[data-switch-track="' + id + '"]') || (dot && dot.previousElementSibling);
+    if (!input || !dot || !track) return;
+    input.style.position = 'absolute'; input.style.opacity = '0'; input.style.width = '44px'; input.style.height = '24px'; input.style.cursor = 'pointer';
+    input.style.inset = '0';
+    track.style.backgroundColor = input.checked
+      ? (document.documentElement.classList.contains('dark') ? '#64748b' : '#334155')
+      : (document.documentElement.classList.contains('dark') ? '#475569' : '#e2e8f0');
+    dot.style.transform = input.checked ? 'translateX(20px)' : 'translateX(0)';
+  }
+  ids.forEach(id => {
+    const input = document.getElementById(id);
+    if (input) { syncSwitch(id); input.addEventListener('change', () => syncSwitch(id)); }
+  });
+})();
+{% endlocalize %}</script>
+{% endblock %}

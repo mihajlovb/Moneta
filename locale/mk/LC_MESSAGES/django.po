@@ -1,0 +1,1877 @@
+# Macedonian translations for Moneta
+msgid ""
+msgstr ""
+"Project-Id-Version: Moneta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-06 12:03+0100\n"
+"Last-Translator: Borjan Mihajlov\n"
+"Language-Team: Macedonian\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
+
+#: config/settings.py:168
+msgid "English"
+msgstr "Англиски"
+
+#: config/settings.py:169
+msgid "Macedonian"
+msgstr "Македонски"
+
+#: finance/admin.py:34
+msgid "Recent transaction"
+msgstr "Последна трансакција"
+
+#: finance/admin.py:35
+msgid "Recent transactions (last 10)"
+msgstr "Последни трансакции (последни 10)"
+
+#: finance/admin.py:58
+msgid "Basic Info"
+msgstr "Основни податоци"
+
+#: finance/admin.py:61
+msgid "Financial"
+msgstr "Финансии"
+
+# Settings page and markets
+#: finance/admin.py:64 finance/context_processors.py:17
+#: finance/templates/finance/settings.html:3
+#: finance/templates/finance/settings.html:9
+msgid "Settings"
+msgstr "Поставки"
+
+#: finance/admin.py:76 finance/admin.py:213
+#: finance/templates/finance/transaction_form.html:20
+msgid "Account"
+msgstr "Сметка"
+
+#: finance/admin.py:82 finance/admin.py:142 finance/admin.py:181
+#: finance/admin.py:243 finance/admin.py:303
+msgid "User"
+msgstr "Корисник"
+
+#: finance/admin.py:99 finance/admin.py:134
+msgid "Type"
+msgstr "Тип"
+
+#: finance/admin.py:105
+msgid "Current balance"
+msgstr "Тековно салдо"
+
+#: finance/admin.py:124 finance/admin.py:204 finance/admin.py:237
+#: finance/templates/finance/budget_form.html:6
+#: finance/templates/finance/transaction_form.html:21
+msgid "Category"
+msgstr "Категорија"
+
+#: finance/admin.py:129 finance/models.py:78 finance/models.py:107
+#: finance/templates/finance/dashboard.html:34
+#: finance/templates/finance/dashboard.html:112
+#: finance/templates/finance/reports.html:107
+#: finance/templates/finance/transaction_form.html:14 finance/views.py:169
+msgid "Income"
+msgstr "Приходи"
+
+#: finance/admin.py:129 finance/models.py:79 finance/models.py:108
+#: finance/templates/finance/transaction_form.html:13
+msgid "Expense"
+msgstr "Расход"
+
+#: finance/admin.py:141
+msgid "Default"
+msgstr "Стандардно"
+
+#: finance/admin.py:147 finance/admin.py:370 finance/context_processors.py:10
+#: finance/templates/finance/transactions.html:3
+#: finance/templates/finance/transactions.html:7
+msgid "Transactions"
+msgstr "Трансакции"
+
+#: finance/admin.py:166
+msgid "Transaction Details"
+msgstr "Детали за трансакцијата"
+
+#: finance/admin.py:169
+msgid "Classification"
+msgstr "Класификација"
+
+#: finance/admin.py:172
+msgid "Meta"
+msgstr "Мета-податоци"
+
+#: finance/admin.py:193 finance/admin.py:218
+#: finance/templates/finance/transaction_form.html:17
+msgid "Amount"
+msgstr "Износ"
+
+#: finance/admin.py:247
+msgid "Limit"
+msgstr "Лимит"
+
+#: finance/admin.py:254
+msgid "Spent"
+msgstr "Потрошено"
+
+#: finance/admin.py:270 finance/admin.py:322
+msgid "Progress"
+msgstr "Напредок"
+
+#: finance/admin.py:273
+msgid "OK"
+msgstr "Во ред"
+
+#: finance/admin.py:274
+msgid "Warning"
+msgstr "Предупредување"
+
+#: finance/admin.py:275 finance/templates/finance/budgets.html:10
+#: finance/templates/finance/dashboard.html:80
+msgid "Over budget"
+msgstr "Над буџет"
+
+#: finance/admin.py:281
+msgid "Status"
+msgstr "Статус"
+
+#: finance/admin.py:297
+msgid "Goal"
+msgstr "Цел"
+
+#: finance/admin.py:307
+msgid "Target"
+msgstr "Цел (износ)"
+
+#: finance/admin.py:312
+msgid "Saved"
+msgstr "Заштедено"
+
+#: finance/admin.py:329
+msgid "overdue"
+msgstr "задоцнето"
+
+#: finance/admin.py:331 finance/admin.py:332
+msgid "days"
+msgstr "дена"
+
+#: finance/admin.py:333
+msgid "Days left"
+msgstr "Преостанати денови"
+
+#: finance/admin.py:341 finance/admin.py:345 templates/admin/index.html:6
+msgid "Finance Management Dashboard"
+msgstr "Контролна табла за управување со финансии"
+
+#: finance/admin.py:369
+msgid "Users"
+msgstr "Корисници"
+
+#: finance/admin.py:371
+msgid "Total Income"
+msgstr "Вкупни приходи"
+
+#: finance/admin.py:372
+msgid "Total Expenses"
+msgstr "Вкупни расходи"
+
+#: finance/admin.py:373 finance/context_processors.py:12
+#: finance/templates/finance/budgets.html:2
+#: finance/templates/finance/budgets.html:4
+#: templates/registration/login.html:15
+msgid "Budgets"
+msgstr "Буџети"
+
+#: finance/admin.py:374 finance/context_processors.py:13
+#: templates/registration/login.html:15
+msgid "Goals"
+msgstr "Цели"
+
+#: finance/context_processors.py:9
+msgid "Home"
+msgstr "Почетна"
+
+#: finance/context_processors.py:11 finance/templates/finance/accounts.html:3
+#: finance/templates/finance/accounts.html:6
+msgid "Accounts"
+msgstr "Сметки"
+
+#: finance/context_processors.py:14 finance/templates/finance/recurring.html:3
+msgid "Recurring"
+msgstr "Повторувачки"
+
+#: finance/context_processors.py:15 finance/templates/finance/reports.html:3
+#: finance/templates/finance/reports.html:7
+msgid "Reports"
+msgstr "Извештаи"
+
+#: finance/context_processors.py:16 finance/templates/finance/markets.html:3
+#: finance/templates/finance/markets.html:7
+msgid "Markets"
+msgstr "Берза"
+
+#: finance/forms.py:83
+msgid ""
+"A budget already exists for this category and month. Edit the existing "
+"budget instead."
+msgstr ""
+"Веќе постои буџет за оваа категорија и месец. Измени го постојниот буџет."
+
+# ── Accounts and payment instruments ─────────────────────────────────────
+#: finance/migrations/0004_account_payment_instrument_remove_goal_icon.py:29
+#: finance/models.py:16
+msgid "Checking account"
+msgstr "Трансакциска сметка"
+
+#: finance/migrations/0004_account_payment_instrument_remove_goal_icon.py:29
+#: finance/models.py:17
+msgid "Savings account"
+msgstr "Штедна сметка"
+
+#: finance/migrations/0004_account_payment_instrument_remove_goal_icon.py:29
+#: finance/models.py:18 finance/views.py:229
+msgid "Cash"
+msgstr "Готовина"
+
+#: finance/migrations/0004_account_payment_instrument_remove_goal_icon.py:29
+#: finance/models.py:19
+msgid "Credit card"
+msgstr "Кредитна картичка"
+
+#: finance/migrations/0004_account_payment_instrument_remove_goal_icon.py:29
+#: finance/models.py:20 finance/views.py:231
+msgid "Investments"
+msgstr "Инвестиции"
+
+#: finance/templates/finance/account_form.html:4
+msgid "Back to accounts"
+msgstr "Назад кон сметките"
+
+#: finance/templates/finance/account_form.html:4
+msgid "ACCOUNT DETAILS"
+msgstr "ДЕТАЛИ ЗА СМЕТКАТА"
+
+#: finance/templates/finance/account_form.html:4
+msgid ""
+"Keep your account details accurate so your financial overview stays useful."
+msgstr ""
+"Одржувај ги деталите за сметката точни за финансискиот преглед да биде "
+"корисен."
+
+#: finance/templates/finance/account_form.html:5
+msgid "Account information"
+msgstr "Информации за сметката"
+
+#: finance/templates/finance/account_form.html:5
+msgid "Choose a name and account type, then enter the starting balance."
+msgstr "Избери име и тип на сметка, а потоа внеси го почетното салдо."
+
+#: finance/templates/finance/account_form.html:6
+msgid "Account name"
+msgstr "Име на сметката"
+
+#: finance/templates/finance/account_form.html:6
+msgid "Account type"
+msgstr "Тип на сметка"
+
+#: finance/templates/finance/account_form.html:6
+msgid "Debit card linked to this account"
+msgstr "Дебитна картичка поврзана со оваа сметка"
+
+#: finance/templates/finance/account_form.html:6
+msgid ""
+"The card uses this account balance; it is not a separate account or extra "
+"money."
+msgstr ""
+"Картичката го користи салдото на оваа сметка; не е посебна сметка и не "
+"претставува дополнителни пари."
+
+#: finance/templates/finance/account_form.html:6
+msgid "Opening balance"
+msgstr "Почетно салдо"
+
+#: finance/templates/finance/account_form.html:6
+msgid "Enter the balance at the time you start tracking this account."
+msgstr "Внеси го салдото од моментот кога почнуваш да ја следиш оваа сметка."
+
+#: finance/templates/finance/account_form.html:6
+msgid "Account currency"
+msgstr "Валута на сметката"
+
+#: finance/templates/finance/account_form.html:6
+msgid "This is the currency of the account itself."
+msgstr "Ова е валутата на самата сметка."
+
+#: finance/templates/finance/account_form.html:6
+msgid "Account color"
+msgstr "Боја на сметката"
+
+#: finance/templates/finance/account_form.html:6
+msgid "Used to identify this account in the interface."
+msgstr "Се користи за препознавање на сметката во интерфејсот."
+
+#: finance/templates/finance/account_form.html:7
+msgid "Include in net worth"
+msgstr "Вклучи во вкупен имот"
+
+#: finance/templates/finance/account_form.html:7
+msgid "Count this account in your total assets and liabilities."
+msgstr "Вклучи ја оваа сметка во вкупните средства и обврски."
+
+#: finance/templates/finance/account_form.html:8
+#: finance/templates/finance/budget_form.html:7
+#: finance/templates/finance/confirm_delete.html:12
+#: finance/templates/finance/goal_form.html:7
+#: finance/templates/finance/transaction_form.html:6
+#: finance/templates/finance/transaction_form.html:26
+msgid "Cancel"
+msgstr "Откажи"
+
+#: finance/templates/finance/account_form.html:8
+msgid "Save account"
+msgstr "Зачувај сметка"
+
+#: finance/templates/finance/accounts.html:6
+msgid "YOUR MONEY"
+msgstr "ТВОИТЕ ПАРИ"
+
+#: finance/templates/finance/accounts.html:6
+msgid "See where your money lives and how your balances add up."
+msgstr "Види каде се твоите пари и како се собираат салдата."
+
+# ── Accounts ────────────────────────────────────────────────────────────
+#: finance/templates/finance/accounts.html:7
+#: finance/templates/finance/accounts.html:22
+#: finance/templates/finance/dashboard.html:17 finance/views.py:279
+msgid "Add account"
+msgstr "Додај сметка"
+
+#: finance/templates/finance/accounts.html:10
+#: finance/templates/finance/dashboard.html:93
+msgid "Your accounts"
+msgstr "Твои сметки"
+
+#: finance/templates/finance/accounts.html:10
+msgid ""
+"Manage account details and check each balance in its original currency."
+msgstr ""
+"Управувај со деталите на сметките и провери го секое салдо во неговата "
+"оригинална валута."
+
+#: finance/templates/finance/accounts.html:11
+#: finance/templates/finance/accounts.html:17
+msgid "accounts"
+msgstr "сметки"
+
+#: finance/templates/finance/accounts.html:13
+msgid "Accounts by type"
+msgstr "Сметки по тип"
+
+#: finance/templates/finance/accounts.html:13
+msgid ""
+"Select a group to expand or collapse it. Edit any account to update its "
+"details."
+msgstr ""
+"Избери група за да ја отвориш или затвориш. Измени ја сметката за да ги "
+"ажурираш нејзините детали."
+
+#: finance/templates/finance/accounts.html:13
+msgid "Account overview"
+msgstr "Преглед на сметките"
+
+#: finance/templates/finance/accounts.html:20
+msgid "Debit card linked"
+msgstr "Поврзана дебитна картичка"
+
+#: finance/templates/finance/accounts.html:20 finance/views.py:290
+msgid "Edit account"
+msgstr "Измени сметка"
+
+#: finance/templates/finance/accounts.html:22
+msgid "Start with your first account"
+msgstr "Започни со првата сметка"
+
+#: finance/templates/finance/accounts.html:22
+msgid ""
+"Add a bank account, cash wallet, savings account or credit card to see your "
+"financial picture here."
+msgstr ""
+"Додај банкарска сметка, паричник, штедна сметка или кредитна картичка за да "
+"ги видиш финансиите тука."
+
+#: finance/templates/finance/budget_form.html:4
+msgid "Back to budgets"
+msgstr "Назад кон буџетите"
+
+#: finance/templates/finance/budget_form.html:4
+msgid "SPENDING PLAN"
+msgstr "ПЛАН ЗА ТРОШЕЊЕ"
+
+#: finance/templates/finance/budget_form.html:4
+msgid "Set a realistic limit for a category and keep your month on track."
+msgstr ""
+"Постави реален лимит за категорија и држи го месечниот план под контрола."
+
+#: finance/templates/finance/budget_form.html:5
+msgid "Budget details"
+msgstr "Детали за буџетот"
+
+#: finance/templates/finance/budget_form.html:5
+msgid "Pick the category, monthly limit and month this plan applies to."
+msgstr "Избери категорија, месечен лимит и месец за кој важи овој план."
+
+#: finance/templates/finance/budget_form.html:6
+msgid "Monthly limit"
+msgstr "Месечен лимит"
+
+#: finance/templates/finance/budget_form.html:6
+msgid ""
+"Enter the planned limit in MKD. Moneta converts it for display when another "
+"currency is selected."
+msgstr ""
+"Внеси го планираниот лимит во MKD. Moneta ќе го конвертира за приказ кога ќе"
+" избереш друга валута."
+
+#: finance/templates/finance/budget_form.html:6
+msgid "Budget month"
+msgstr "Месец на буџетот"
+
+#: finance/templates/finance/budget_form.html:6
+msgid "Choose a month and year from the month picker."
+msgstr "Избери месец и година од календарот за месеци."
+
+#: finance/templates/finance/budget_form.html:7
+msgid ""
+"A clear budget helps you spot overspending early. You can edit the limit any"
+" time."
+msgstr ""
+"Јасен буџет помага навреме да забележиш прекумерно трошење. Лимитот можеш да"
+" го измениш во секое време."
+
+#: finance/templates/finance/budget_form.html:7
+msgid "Save budget"
+msgstr "Зачувај буџет"
+
+#: finance/templates/finance/budgets.html:4
+msgid "PLAN WITH CONFIDENCE"
+msgstr "ПЛАНИРАЈ СО СИГУРНОСТ"
+
+#: finance/templates/finance/budgets.html:4
+msgid "Keep spending aligned with what matters to you."
+msgstr "Усогласи го трошењето со она што ти е важно."
+
+# ── Budgets ─────────────────────────────────────────────────────────────
+#: finance/templates/finance/budgets.html:4 finance/views.py:327
+msgid "Add budget"
+msgstr "Додај буџет"
+
+#: finance/templates/finance/budgets.html:6
+msgid "Your category budgets"
+msgstr "Твоите буџети по категории"
+
+#: finance/templates/finance/budgets.html:6
+msgid "Review each limit, see how much is left, and edit budgets directly."
+msgstr ""
+"Прегледај го секој лимит, види колку останува и уреди ги буџетите директно."
+
+#: finance/templates/finance/budgets.html:10
+msgid "Approaching limit"
+msgstr "Се приближуваш до лимитот"
+
+#: finance/templates/finance/budgets.html:10
+msgid "On track"
+msgstr "Во рамки на планот"
+
+#: finance/templates/finance/budgets.html:10 finance/views.py:338
+msgid "Edit budget"
+msgstr "Измени буџет"
+
+#: finance/templates/finance/budgets.html:10
+msgid "Delete budget"
+msgstr "Избриши буџет"
+
+#: finance/templates/finance/budgets.html:11
+msgid "spent"
+msgstr "потрошено"
+
+#: finance/templates/finance/budgets.html:11
+msgid "limit"
+msgstr "лимит"
+
+#: finance/templates/finance/budgets.html:13
+msgid "used"
+msgstr "искористено"
+
+#: finance/templates/finance/budgets.html:13
+msgid "over"
+msgstr "надминато"
+
+#: finance/templates/finance/budgets.html:13
+msgid "left"
+msgstr "останато"
+
+#: finance/templates/finance/budgets.html:14
+msgid "Give your money a plan"
+msgstr "Направи план за парите"
+
+#: finance/templates/finance/budgets.html:14
+msgid ""
+"Create your first category budget to track spending and know how much you "
+"can safely spend."
+msgstr ""
+"Креирај го првиот буџет по категорија за да го следиш трошењето и да знаеш "
+"колку можеш да потрошиш."
+
+#: finance/templates/finance/budgets.html:14
+#: finance/templates/finance/dashboard.html:81
+msgid "Create your first budget"
+msgstr "Создади го твојот прв буџет"
+
+#: finance/templates/finance/confirm_delete.html:3
+msgid "Confirm Delete"
+msgstr "Потврди бришење"
+
+#: finance/templates/finance/confirm_delete.html:7
+#, python-format
+msgid "Delete \"%(name)s\"?"
+msgstr "Избриши \"%(name)s\"?"
+
+#: finance/templates/finance/confirm_delete.html:8
+msgid "This action cannot be undone."
+msgstr "Оваа акција не може да се врати."
+
+#: finance/templates/finance/confirm_delete.html:11
+msgid "Yes, delete"
+msgstr "Да, избриши"
+
+# ── Navigation ──────────────────────────────────────────────────────────
+#: finance/templates/finance/dashboard.html:3
+msgid "Dashboard"
+msgstr "Преглед"
+
+# Dashboard usability improvements
+#: finance/templates/finance/dashboard.html:9
+msgid "Your financial overview"
+msgstr "Твој финансиски преглед"
+
+#: finance/templates/finance/dashboard.html:10
+msgid "Amounts shown in"
+msgstr "Износи прикажани во"
+
+# ── Transactions ────────────────────────────────────────────────────────
+#: finance/templates/finance/dashboard.html:14
+#: finance/templates/finance/transactions.html:8 finance/views.py:190
+msgid "Add transaction"
+msgstr "Додај трансакција"
+
+#: finance/templates/finance/dashboard.html:24
+msgid "Financial summary"
+msgstr "Финансиски преглед"
+
+#: finance/templates/finance/dashboard.html:27
+msgid "Net worth"
+msgstr "Нето-вредност"
+
+#: finance/templates/finance/dashboard.html:29
+msgid "Assets minus liabilities across active accounts"
+msgstr "Средства минус обврски на активните сметки"
+
+#: finance/templates/finance/dashboard.html:30
+msgid "View accounts"
+msgstr "Прегледај сметки"
+
+#: finance/templates/finance/dashboard.html:36
+#: finance/templates/finance/dashboard.html:42
+msgid "vs. previous month"
+msgstr "во споредба со претходниот месец"
+
+#: finance/templates/finance/dashboard.html:36
+#: finance/templates/finance/dashboard.html:42
+msgid "No previous-month baseline"
+msgstr "Нема основа за споредба со претходниот месец"
+
+#: finance/templates/finance/dashboard.html:40
+#: finance/templates/finance/dashboard.html:112
+#: finance/templates/finance/reports.html:108 finance/views.py:170
+msgid "Expenses"
+msgstr "Расходи"
+
+#: finance/templates/finance/dashboard.html:46
+#: finance/templates/finance/dashboard.html:48
+msgid "Savings rate"
+msgstr "Стапка на штедење"
+
+#: finance/templates/finance/dashboard.html:55
+msgid "Needs your attention"
+msgstr "Вреди да обрнеш внимание"
+
+#: finance/templates/finance/dashboard.html:55
+msgid "insight(s)"
+msgstr "сигнал(и)"
+
+#: finance/templates/finance/dashboard.html:57
+msgid "more"
+msgstr "повеќе"
+
+#: finance/templates/finance/dashboard.html:65
+#: templates/registration/login.html:15
+msgid "Cash flow"
+msgstr "Паричен тек"
+
+#: finance/templates/finance/dashboard.html:65
+msgid "Income and expenses over the last six months"
+msgstr "Приходи и расходи во последните шест месеци"
+
+#: finance/templates/finance/dashboard.html:65
+msgid "View reports"
+msgstr "Прегледај извештаи"
+
+#: finance/templates/finance/dashboard.html:66
+msgid "Line chart comparing monthly income and expenses"
+msgstr "Линиски графикон за споредба на месечните приходи и расходи"
+
+#: finance/templates/finance/dashboard.html:66
+msgid "Your cash flow will appear here"
+msgstr "Тука ќе се прикаже текот на парите"
+
+#: finance/templates/finance/dashboard.html:66
+msgid "Add a few transactions to see how money moves in and out."
+msgstr ""
+"Додај неколку трансакции за да видиш како влегуваат и излегуваат парите."
+
+#: finance/templates/finance/dashboard.html:66
+#: finance/templates/finance/dashboard.html:86
+msgid "Add your first transaction"
+msgstr "Додај ја првата трансакција"
+
+#: finance/templates/finance/dashboard.html:70
+msgid "Spending breakdown"
+msgstr "Распределба на трошоците"
+
+#: finance/templates/finance/dashboard.html:70
+msgid "Where your money went this month"
+msgstr "Каде отидоа твоите пари овој месец"
+
+#: finance/templates/finance/dashboard.html:71
+msgid "Doughnut chart of spending by category"
+msgstr "Кружен графикон на расходи по категории"
+
+#: finance/templates/finance/dashboard.html:71
+msgid "No spending data yet"
+msgstr "Сè уште нема податоци за трошењето"
+
+#: finance/templates/finance/dashboard.html:71
+msgid "Expenses will be grouped here by category."
+msgstr "Расходите ќе бидат групирани тука според категорија."
+
+#: finance/templates/finance/dashboard.html:72
+msgid "Explore transactions"
+msgstr "Прегледај ги трансакциите"
+
+#: finance/templates/finance/dashboard.html:79
+msgid "Budget health"
+msgstr "Состојба на буџетот"
+
+#: finance/templates/finance/dashboard.html:79
+msgid "Track how much of each limit is used"
+msgstr "Следи колкав дел од секој лимит е искористен"
+
+#: finance/templates/finance/dashboard.html:79
+msgid "All budgets"
+msgstr "Сите буџети"
+
+#: finance/templates/finance/dashboard.html:80
+msgid "budget used"
+msgstr "искористен буџет"
+
+#: finance/templates/finance/dashboard.html:80
+msgid "remaining"
+msgstr "останато"
+
+#: finance/templates/finance/dashboard.html:80
+msgid "Almost there"
+msgstr "Речиси до лимитот"
+
+#: finance/templates/finance/dashboard.html:81
+msgid "Plan your monthly spending"
+msgstr "Планирај го месечното трошење"
+
+#: finance/templates/finance/dashboard.html:81
+msgid "Set category limits to understand how much you can safely spend."
+msgstr "Постави лимити по категории за да знаеш колку можеш да потрошиш."
+
+#: finance/templates/finance/dashboard.html:85
+msgid "Recent transactions"
+msgstr "Последни трансакции"
+
+#: finance/templates/finance/dashboard.html:85
+msgid "Your latest money movements"
+msgstr "Твоите последни парични движења"
+
+#: finance/templates/finance/dashboard.html:85
+msgid "See all"
+msgstr "Види сè"
+
+#: finance/templates/finance/dashboard.html:86
+msgid "No transactions yet"
+msgstr "Сè уште нема трансакции"
+
+#: finance/templates/finance/dashboard.html:86
+msgid "Your activity will show up here after your first entry."
+msgstr "Твојата активност ќе се прикаже тука по првиот внес."
+
+#: finance/templates/finance/dashboard.html:93
+#, python-format
+msgid "%(count)s active account"
+msgid_plural "%(count)s active accounts"
+msgstr[0] "%(count)s активна сметка"
+msgstr[1] "%(count)s активни сметки"
+
+#: finance/templates/finance/dashboard.html:93
+msgid "Manage"
+msgstr "Управувај"
+
+#: finance/templates/finance/dashboard.html:94
+msgid "Bring your accounts together"
+msgstr "Собери ги сметките на едно место"
+
+#: finance/templates/finance/dashboard.html:94
+msgid "Add a bank account, card or cash wallet to see your net worth."
+msgstr ""
+"Додај банкарска сметка, картичка или паричник за да го видиш вкупниот имот."
+
+#: finance/templates/finance/dashboard.html:94
+msgid "Add your first account"
+msgstr "Додај ја првата сметка"
+
+#: finance/templates/finance/dashboard.html:98
+#: finance/templates/finance/goals.html:4
+msgid "Savings goals"
+msgstr "Цели за штедење"
+
+#: finance/templates/finance/dashboard.html:98
+msgid "Progress toward what matters to you"
+msgstr "Напредок кон целите што ти значат"
+
+#: finance/templates/finance/dashboard.html:98
+msgid "All goals"
+msgstr "Сите цели"
+
+#: finance/templates/finance/dashboard.html:99
+msgid "goal progress"
+msgstr "напредок на целта"
+
+#: finance/templates/finance/dashboard.html:99
+msgid "Give your savings a purpose"
+msgstr "Дај им цел на твоите заштеди"
+
+#: finance/templates/finance/dashboard.html:99
+msgid ""
+"Create a goal to track progress toward a trip, a purchase or an emergency "
+"fund."
+msgstr ""
+"Креирај цел за да следиш заштеди за патување, купување или фонд за итни "
+"случаи."
+
+#: finance/templates/finance/dashboard.html:99
+msgid "Create a savings goal"
+msgstr "Креирај цел за штедење"
+
+#: finance/templates/finance/goal_form.html:4
+msgid "Back to goals"
+msgstr "Назад кон целите"
+
+#: finance/templates/finance/goal_form.html:4
+msgid "YOUR NEXT MILESTONE"
+msgstr "ТВОЈАТА СЛЕДНА ЦЕЛ"
+
+#: finance/templates/finance/goal_form.html:4
+msgid "Define what you're saving for and track progress toward your target."
+msgstr "Определи за што штедиш и следи го напредокот кон целта."
+
+#: finance/templates/finance/goal_form.html:5
+msgid "Goal details"
+msgstr "Детали за целта"
+
+#: finance/templates/finance/goal_form.html:5
+msgid "Give your goal a clear name and a target you can work toward."
+msgstr "Дај ѝ на целта јасно име и одреди износ кон кој ќе работиш."
+
+#: finance/templates/finance/goal_form.html:6
+msgid "Goal name"
+msgstr "Име на целта"
+
+#: finance/templates/finance/goal_form.html:6
+msgid "Target amount"
+msgstr "Целен износ"
+
+#: finance/templates/finance/goal_form.html:6
+msgid "Already saved"
+msgstr "Веќе заштедено"
+
+#: finance/templates/finance/goal_form.html:6
+msgid "Target date"
+msgstr "Целен датум"
+
+#: finance/templates/finance/goal_form.html:6
+msgid "Optional"
+msgstr "Изборно"
+
+#: finance/templates/finance/goal_form.html:7
+msgid "Amounts are entered in MKD and displayed in your selected currency."
+msgstr "Износите се внесуваат во MKD и се прикажуваат во избраната валута."
+
+#: finance/templates/finance/goal_form.html:7
+msgid "Save goal"
+msgstr "Зачувај цел"
+
+#: finance/templates/finance/goals.html:2
+msgid "Savings Goals"
+msgstr "Цели за штедење"
+
+#: finance/templates/finance/goals.html:4
+msgid "MAKE ROOM FOR WHAT MATTERS"
+msgstr "НАПРАВИ МЕСТО ЗА ВАЖНОТО"
+
+#: finance/templates/finance/goals.html:4
+msgid "Turn your plans into progress, one contribution at a time."
+msgstr "Претвори ги плановите во напредок, чекор по чекор."
+
+# ── Goals ────────────────────────────────────────────────────────────────
+#: finance/templates/finance/goals.html:4 finance/views.py:378
+msgid "Add goal"
+msgstr "Додај цел"
+
+#: finance/templates/finance/goals.html:7
+msgid "TOTAL SAVINGS TARGET"
+msgstr "ВКУПНА ЦЕЛ ЗА ШТЕДЕЊЕ"
+
+#: finance/templates/finance/goals.html:7
+msgid "Combined target across all your savings goals."
+msgstr "Збирна цел за сите твои цели за штедење."
+
+#: finance/templates/finance/goals.html:12
+msgid "Past deadline"
+msgstr "Поминат рок"
+
+#: finance/templates/finance/goals.html:12
+msgid "days left"
+msgstr "денови останати"
+
+#: finance/templates/finance/goals.html:12
+msgid "No deadline set"
+msgstr "Не е поставен рок"
+
+#: finance/templates/finance/goals.html:12 finance/views.py:389
+msgid "Edit goal"
+msgstr "Измени цел"
+
+#: finance/templates/finance/goals.html:12
+msgid "Delete goal"
+msgstr "Избриши цел"
+
+#: finance/templates/finance/goals.html:13
+msgid "saved so far"
+msgstr "досега заштедено"
+
+#: finance/templates/finance/goals.html:13
+msgid "target"
+msgstr "цел"
+
+#: finance/templates/finance/goals.html:13
+msgid "to go"
+msgstr "до цел"
+
+#: finance/templates/finance/goals.html:14
+msgid "Goal reached — congratulations!"
+msgstr "Целта е постигната — честитки!"
+
+#: finance/templates/finance/goals.html:15
+msgid "What are you saving for?"
+msgstr "За што штедиш?"
+
+#: finance/templates/finance/goals.html:15
+msgid ""
+"Create a goal for a trip, an emergency fund, a new device or anything "
+"important to you."
+msgstr ""
+"Креирај цел за патување, фонд за итни случаи, нов уред или нешто друго што "
+"ти е важно."
+
+#: finance/templates/finance/goals.html:15
+msgid "Create your first goal"
+msgstr "Создади ја твојата прва цел"
+
+# ── Markets ──────────────────────────────────────────────────────────────
+#: finance/templates/finance/markets.html:8
+msgid "Real-time prices via Yahoo Finance"
+msgstr "Цени во реално време преку Yahoo Finance"
+
+#: finance/templates/finance/markets.html:11
+msgid "Top movers today"
+msgstr "Најголеми движења денес"
+
+#: finance/templates/finance/markets.html:11
+msgid "Ranked by daily percentage change when data is available"
+msgstr ""
+"Подредени според дневната процентуална промена кога има достапни податоци"
+
+#: finance/templates/finance/markets.html:46
+msgid "Watchlist"
+msgstr "Листа за следење"
+
+#: finance/templates/finance/markets.html:49
+msgid "Live"
+msgstr "Живо"
+
+#: finance/templates/finance/markets.html:70
+msgid "Prices may be delayed up to 15 minutes. Not financial advice."
+msgstr "Цените може да задоцнат до 15 минути. Ова не е финансиски совет."
+
+#: finance/templates/finance/markets.html:79
+msgid "Updated"
+msgstr "Ажурирано"
+
+#: finance/templates/finance/recurring.html:7
+msgid "Recurring Expenses"
+msgstr "Повторувачки расходи"
+
+#: finance/templates/finance/recurring.html:8
+msgid "Subscriptions and regular payments"
+msgstr "Претплати и редовни плаќања"
+
+#: finance/templates/finance/recurring.html:10 templates/admin/index.html:27
+msgid "Add"
+msgstr "Додај"
+
+#: finance/templates/finance/recurring.html:16
+msgid "Monthly recurring"
+msgstr "Месечно повторување"
+
+#: finance/templates/finance/recurring.html:22
+msgid "active subscriptions"
+msgstr "активни претплати"
+
+#: finance/templates/finance/recurring.html:25
+msgid "Est. monthly cost"
+msgstr "Проценет месечен трошок"
+
+#: finance/templates/finance/recurring.html:27
+msgid "based on last amounts"
+msgstr "врз основа на последните износи"
+
+#: finance/templates/finance/recurring.html:30
+msgid "Next upcoming"
+msgstr "Следно плаќање"
+
+#: finance/templates/finance/recurring.html:32
+msgid "today"
+msgstr "денес"
+
+#: finance/templates/finance/recurring.html:42
+msgid "Upcoming"
+msgstr "Претстојни"
+
+#: finance/templates/finance/recurring.html:58
+msgid "Monthly"
+msgstr "Месечно"
+
+#: finance/templates/finance/recurring.html:72
+msgid "No recurring transactions yet."
+msgstr "Сè уште нема повторувачки трансакции."
+
+#: finance/templates/finance/recurring.html:73
+msgid "Mark any transaction as recurring when adding it."
+msgstr "Означи ја трансакцијата како повторувачка кога ќе ја додадеш."
+
+#: finance/templates/finance/reports.html:14
+msgid "Cash Flow"
+msgstr "Паричен тек"
+
+#: finance/templates/finance/reports.html:15
+msgid "Monthly income and expenses — last 12 months ·"
+msgstr "Месечни приходи и расходи — последни 12 месеци ·"
+
+#: finance/templates/finance/reports.html:36
+msgid "Spending by Category"
+msgstr "Расходи по категории"
+
+#: finance/templates/finance/reports.html:59
+msgid "No spending data this month."
+msgstr "Нема податоци за трошење овој месец."
+
+#: finance/templates/finance/reports.html:65
+msgid "Net Spending"
+msgstr "Нето трошење"
+
+#: finance/templates/finance/reports.html:66
+msgid "Cumulative this month"
+msgstr "Вкупно овој месец"
+
+#: finance/templates/finance/reports.html:73
+msgid "Breakdown"
+msgstr "Распределба"
+
+#: finance/templates/finance/reports.html:91
+msgid "No data."
+msgstr "Нема податоци."
+
+#: finance/templates/finance/settings.html:10
+msgid ""
+"Manage your profile, display preferences, notifications and account "
+"security."
+msgstr ""
+"Управувај со профилот, изгледот, известувањата и безбедноста на сметката."
+
+#: finance/templates/finance/settings.html:18
+#: finance/templates/finance/settings.html:38
+msgid "Profile"
+msgstr "Профил"
+
+#: finance/templates/finance/settings.html:19
+#: finance/templates/finance/settings.html:63
+msgid "Preferences"
+msgstr "Преференции"
+
+#: finance/templates/finance/settings.html:20
+#: finance/templates/finance/settings.html:88
+msgid "Notifications"
+msgstr "Известувања"
+
+#: finance/templates/finance/settings.html:21
+#: finance/templates/finance/settings.html:136
+msgid "Data & Privacy"
+msgstr "Податоци и приватност"
+
+#: finance/templates/finance/settings.html:22
+#: finance/templates/finance/settings.html:147
+msgid "Security"
+msgstr "Безбедност"
+
+#: finance/templates/finance/settings.html:29
+msgid "Please check the fields marked below."
+msgstr "Провери ги означените полиња подолу."
+
+#: finance/templates/finance/settings.html:39
+msgid "Update the personal details associated with your account."
+msgstr "Ажурирај ги личните податоци поврзани со твојата сметка."
+
+#: finance/templates/finance/settings.html:43
+msgid "First name"
+msgstr "Име"
+
+#: finance/templates/finance/settings.html:48
+msgid "Last name"
+msgstr "Презиме"
+
+#: finance/templates/finance/settings.html:53
+msgid "Email address"
+msgstr "Е-пошта"
+
+#: finance/templates/finance/settings.html:56
+msgid ""
+"Used for account-related communication when email delivery is configured."
+msgstr ""
+"Се користи за комуникација поврзана со сметката кога е конфигурирано "
+"испраќање е-пошта."
+
+#: finance/templates/finance/settings.html:64
+msgid "Choose how Moneta displays financial information."
+msgstr "Избери како Moneta ги прикажува финансиските информации."
+
+#: finance/templates/finance/settings.html:69
+msgid "Display currency"
+msgstr "Валута за приказ"
+
+#: finance/templates/finance/settings.html:70
+msgid ""
+"Financial overview totals are converted to this currency. Individual "
+"transactions retain their account currency."
+msgstr ""
+"Вкупните износи се конвертираат во оваа валута. Поединечните трансакции ја "
+"задржуваат валутата на сметката."
+
+#: finance/templates/finance/settings.html:77
+msgid "Appearance"
+msgstr "Изглед"
+
+#: finance/templates/finance/settings.html:78
+msgid "Use a light or dark interface."
+msgstr "Користи светол или темен изглед."
+
+#: finance/templates/finance/settings.html:89
+msgid ""
+"Save which reminders you would like to receive when notification delivery is"
+" enabled."
+msgstr ""
+"Избери кои потсетници сакаш да ги добиваш кога ќе биде овозможено "
+"испраќањето известувања."
+
+#: finance/templates/finance/settings.html:93
+msgid "Budget reminders"
+msgstr "Потсетници за буџет"
+
+#: finance/templates/finance/settings.html:93
+msgid "Remind me when a budget is close to its limit."
+msgstr "Потсети ме кога буџетот ќе се приближи до лимитот."
+
+#: finance/templates/finance/settings.html:97
+msgid "Transaction activity"
+msgstr "Активност на трансакции"
+
+#: finance/templates/finance/settings.html:97
+msgid "Keep me informed about transaction activity."
+msgstr "Известувај ме за активноста на трансакциите."
+
+#: finance/templates/finance/settings.html:101
+msgid "Weekly summary"
+msgstr "Неделен преглед"
+
+#: finance/templates/finance/settings.html:101
+msgid "A weekly overview of income, spending and budgets."
+msgstr "Неделен преглед на приходите, расходите и буџетите."
+
+#: finance/templates/finance/settings.html:108
+msgid "Your preferences are saved to your Moneta account."
+msgstr "Твоите поставки се зачувуваат во сметката на Moneta."
+
+#: finance/templates/finance/settings.html:109
+msgid "Save settings"
+msgstr "Зачувај поставки"
+
+#: finance/templates/finance/settings.html:121
+msgid "Language"
+msgstr "Јазик"
+
+#: finance/templates/finance/settings.html:121
+msgid "Choose the language used throughout the interface."
+msgstr "Избери го јазикот што ќе се користи низ апликацијата."
+
+#: finance/templates/finance/settings.html:129
+msgid "Apply"
+msgstr "Примени"
+
+#: finance/templates/finance/settings.html:137
+msgid "Export a copy of your data for your own records."
+msgstr "Извези копија од податоците за сопствена евиденција."
+
+#: finance/templates/finance/settings.html:140
+msgid "Export transactions"
+msgstr "Извези трансакции"
+
+#: finance/templates/finance/settings.html:140
+msgid "Download your transactions as a CSV spreadsheet."
+msgstr "Преземи ги трансакциите како CSV табела."
+
+#: finance/templates/finance/settings.html:141
+msgid "Download CSV"
+msgstr "Преземи CSV"
+
+#: finance/templates/finance/settings.html:148
+msgid "Protect your account and sign-in details."
+msgstr "Заштити ја сметката и податоците за најава."
+
+#: finance/templates/finance/settings.html:151 templates/admin/login.html:78
+#: templates/registration/login.html:29
+msgid "Password"
+msgstr "Лозинка"
+
+#: finance/templates/finance/settings.html:151
+msgid "Change the password you use to sign in."
+msgstr "Промени ја лозинката што ја користиш за најава."
+
+#: finance/templates/finance/settings.html:152
+#: templates/registration/password_change_form.html:3
+#: templates/registration/password_change_form.html:10
+msgid "Change password"
+msgstr "Промени лозинка"
+
+#: finance/templates/finance/settings.html:155
+msgid "Admin panel"
+msgstr "Админ панел"
+
+#: finance/templates/finance/settings.html:155
+msgid "Administrative data management."
+msgstr "Административно управување со податоци."
+
+#: finance/templates/finance/settings.html:156
+msgid "Open admin"
+msgstr "Отвори админ панел"
+
+#: finance/templates/finance/settings.html:156
+msgid "Staff access only"
+msgstr "Пристап само за администратори"
+
+#: finance/templates/finance/transaction_form.html:6
+msgid "Money activity"
+msgstr "Финансиска активност"
+
+#: finance/templates/finance/transaction_form.html:6
+msgid "Record a payment or income so your overview stays up to date."
+msgstr "Внеси расход или приход за твојот преглед да биде ажуриран."
+
+#: finance/templates/finance/transaction_form.html:10
+msgid ""
+"Enter the amount in the currency of the selected account. Financial "
+"summaries convert totals to your chosen display currency."
+msgstr ""
+"Внеси го износот во валутата на избраната сметка. Финансиските прегледи ги "
+"конвертираат вкупните износи во избраната валута."
+
+#: finance/templates/finance/transaction_form.html:12
+msgid "Transaction type"
+msgstr "Тип на трансакција"
+
+#: finance/templates/finance/transaction_form.html:18
+msgid "Date"
+msgstr "Датум"
+
+#: finance/templates/finance/transaction_form.html:19
+msgid "Merchant / Description"
+msgstr "Трговец / Опис"
+
+#: finance/templates/finance/transaction_form.html:22
+msgid "Notes"
+msgstr "Белешки"
+
+#: finance/templates/finance/transaction_form.html:22
+msgid "optional"
+msgstr "изборно"
+
+#: finance/templates/finance/transaction_form.html:24
+msgid "Recurring transaction"
+msgstr "Повторувачка трансакција"
+
+#: finance/templates/finance/transaction_form.html:24
+msgid "Mark this if the payment repeats regularly."
+msgstr "Означи ако плаќањето се повторува редовно."
+
+#: finance/templates/finance/transaction_form.html:25
+msgid "Please review the highlighted fields."
+msgstr "Провери ги означените полиња."
+
+#: finance/templates/finance/transaction_form.html:26
+msgid "Save transaction"
+msgstr "Зачувај трансакција"
+
+#: finance/templates/finance/transactions.html:15
+msgid "Search transactions…"
+msgstr "Пребарај трансакции…"
+
+#: finance/templates/finance/transactions.html:39
+msgid "item"
+msgstr "ставка"
+
+#: finance/templates/finance/transactions.html:60
+msgid "No transactions found."
+msgstr "Нема пронајдено трансакции."
+
+#: finance/templates/finance/transactions.html:68
+msgid "← Prev"
+msgstr "← Претходна"
+
+#: finance/templates/finance/transactions.html:73
+msgid "Next →"
+msgstr "Следна →"
+
+#: finance/templates/finance/transactions.html:80
+msgid "Summary"
+msgstr "Преглед"
+
+#: finance/templates/finance/transactions.html:82
+msgid "Total transactions"
+msgstr "Вкупно трансакции"
+
+#: finance/templates/finance/transactions.html:83
+msgid "Total income"
+msgstr "Вкупен приход"
+
+#: finance/templates/finance/transactions.html:84
+msgid "Total spending"
+msgstr "Вкупно потрошено"
+
+#: finance/templates/finance/transactions.html:85
+msgid "Largest expense"
+msgstr "Најголем расход"
+
+#: finance/templates/finance/transactions.html:86
+msgid "Average"
+msgstr "Просек"
+
+#: finance/templates/finance/transactions.html:89
+msgid "First"
+msgstr "Прво"
+
+#: finance/templates/finance/transactions.html:90
+msgid "Last"
+msgstr "Последно"
+
+#: finance/views.py:168
+msgid "All"
+msgstr "Сите"
+
+#: finance/views.py:171
+msgid "This month"
+msgstr "Овој месец"
+
+#: finance/views.py:188
+msgid "Transaction added."
+msgstr "Трансакцијата е додадена."
+
+#: finance/views.py:199
+msgid "Transaction updated."
+msgstr "Трансакцијата е ажурирана."
+
+#: finance/views.py:201
+msgid "Edit transaction"
+msgstr "Уреди трансакција"
+
+#: finance/views.py:209
+msgid "Transaction deleted."
+msgstr "Трансакцијата е избришана."
+
+#: finance/views.py:228
+msgid "Checking accounts"
+msgstr "Трансакциски сметки"
+
+#: finance/views.py:230
+msgid "Savings"
+msgstr "Штедење"
+
+#: finance/views.py:232
+msgid "Credit Cards"
+msgstr "Кредитни картички"
+
+#: finance/views.py:277
+msgid "Account added."
+msgstr "Сметката е додадена."
+
+#: finance/views.py:288
+msgid "Account updated."
+msgstr "Сметката е ажурирана."
+
+#: finance/views.py:325
+msgid "Budget created."
+msgstr "Буџетот е креиран."
+
+#: finance/views.py:336
+msgid "Budget updated."
+msgstr "Буџетот е ажуриран."
+
+#: finance/views.py:346
+msgid "Budget deleted."
+msgstr "Буџетот е избришан."
+
+#: finance/views.py:376
+msgid "Goal created."
+msgstr "Целта е креирана."
+
+#: finance/views.py:387
+msgid "Goal updated."
+msgstr "Целта е ажурирана."
+
+#: finance/views.py:397
+msgid "Goal deleted."
+msgstr "Целта е избришана."
+
+#: finance/views.py:546
+msgid "Your settings have been saved."
+msgstr "Поставките се зачувани."
+
+#: finance/views.py:548
+msgid "Please correct the highlighted fields."
+msgstr "Поправи ги означените полиња."
+
+#: templates/admin/index.html:7
+msgid "Manage your users, accounts and financial activity."
+msgstr "Управувај со корисниците, сметките и финансиската активност."
+
+#: templates/admin/index.html:28
+msgid "View"
+msgstr "Прегледај"
+
+#: templates/admin/index.html:35
+msgid "You don’t have permission to view or edit anything."
+msgstr "Немаш дозвола да прегледуваш или уредуваш податоци."
+
+#: templates/admin/login.html:8
+msgid "Sign in to Moneta Admin"
+msgstr "Најава во Moneta Admin"
+
+# ── Transactions ────────────────────────────────────────────────────────
+#: templates/admin/login.html:54
+msgid "Administration"
+msgstr "Администрација"
+
+#: templates/admin/login.html:55
+msgid "A clearer view of your financial platform."
+msgstr "Појасен преглед на твојата финансиска платформа."
+
+#: templates/admin/login.html:56
+msgid ""
+"Manage users, accounts and financial activity from one secure workspace."
+msgstr ""
+"Управувај со корисници, сметки и финансиска активност од едно безбедно "
+"место."
+
+#: templates/admin/login.html:57
+msgid "User management"
+msgstr "Управување со корисници"
+
+#: templates/admin/login.html:57
+msgid "Financial records"
+msgstr "Финансиски записи"
+
+#: templates/admin/login.html:57
+msgid "System overview"
+msgstr "Преглед на системот"
+
+#: templates/admin/login.html:59
+msgid "Administration workspace"
+msgstr "Административен простор"
+
+#: templates/admin/login.html:64
+msgid "Secure access"
+msgstr "Безбеден пристап"
+
+#: templates/admin/login.html:65
+msgid "Sign in to Admin"
+msgstr "Најава во администрацијата"
+
+#: templates/admin/login.html:66
+msgid "Use your administrator account to continue."
+msgstr "Користи ја администраторската сметка за да продолжиш."
+
+#: templates/admin/login.html:67 templates/registration/login.html:26
+msgid "The username or password is incorrect. Please try again."
+msgstr "Корисничкото име или лозинката се погрешни. Обиди се повторно."
+
+#: templates/admin/login.html:73 templates/registration/login.html:28
+msgid "Username"
+msgstr "Корисничко име"
+
+#: templates/admin/login.html:83
+msgid "Log in"
+msgstr "Најави се"
+
+#: templates/admin/login.html:85
+msgid "This area is restricted to authorized administrators."
+msgstr "Овој дел е достапен само за овластени администратори."
+
+#: templates/admin/login.html:86
+msgid "Back to Moneta"
+msgstr "Назад кон Moneta"
+
+#: templates/base.html:32
+msgid "Toggle dark mode"
+msgstr "Вклучи/исклучи темен режим"
+
+#: templates/base.html:91
+msgid "Dark"
+msgstr "Темна"
+
+#: templates/base.html:109
+msgid "Open profile"
+msgstr "Отвори профил"
+
+#: templates/base.html:115 templates/base.html:116
+msgid "Log out"
+msgstr "Одјава"
+
+#: templates/registration/login.html:6 templates/registration/login.html:30
+msgid "Sign in"
+msgstr "Најави се"
+
+#: templates/registration/login.html:15
+msgid "YOUR MONEY, MADE CLEAR"
+msgstr "ТВОИТЕ ПАРИ, ЈАСНО"
+
+#: templates/registration/login.html:15
+msgid "Make confident decisions with your money."
+msgstr "Носи сигурни одлуки за своите пари."
+
+#: templates/registration/login.html:15
+msgid ""
+"Track spending, build better habits, and keep your financial goals in sight "
+"— all in one place."
+msgstr ""
+"Следи ги трошоците, гради подобри навики и не ги губи од вид финансиските "
+"цели — сè на едно место."
+
+#: templates/registration/login.html:16
+msgid "Personal finance dashboard"
+msgstr "Табла за лични финансии"
+
+#: templates/registration/login.html:22
+msgid "WELCOME BACK"
+msgstr "ДОБРЕДОЈДЕ НАЗАД"
+
+#: templates/registration/login.html:22
+msgid "Sign in to Moneta"
+msgstr "Најава во Moneta"
+
+#: templates/registration/login.html:22
+msgid "Enter your account details to continue."
+msgstr "Внеси ги податоците за твојата сметка за да продолжиш."
+
+#: templates/registration/login.html:28
+msgid "Your username"
+msgstr "Твое корисничко име"
+
+#: templates/registration/login.html:29
+msgid "Your password"
+msgstr "Твоја лозинка"
+
+#: templates/registration/login.html:32
+msgid "Demo account:"
+msgstr "Демо сметка:"
+
+#: templates/registration/login.html:32
+msgid "username"
+msgstr "корисничко име"
+
+#: templates/registration/login.html:32
+msgid "password"
+msgstr "лозинка"
+
+#: templates/registration/login.html:32
+msgid ""
+"Run <code>python manage.py seed_demo</code> if you need to reset this demo "
+"login."
+msgstr ""
+"Изврши <code>python manage.py seed_demo</code> ако треба да ја ресетираш "
+"демо-најавата."
+
+# ── Transactions ────────────────────────────────────────────────────────
+#: templates/registration/login.html:33
+msgid "Administrator?"
+msgstr "Администратор?"
+
+#: templates/registration/login.html:33
+msgid "Open Django admin"
+msgstr "Отвори Django admin"
+
+#: templates/registration/password_change_form.html:6
+msgid "Back to settings"
+msgstr "Назад кон поставките"
+
+#: templates/registration/password_change_form.html:11
+msgid "Choose a strong password that you do not use on other sites."
+msgstr "Избери силна лозинка што не ја користиш на други страници."
+
+#: templates/registration/password_change_form.html:24
+msgid "Update password"
+msgstr "Ажурирај лозинка"
+
+#~ msgid "Light"
+#~ msgstr "Светла"
+
+#~ msgid "Personal"
+#~ msgstr "Лично"
+
+# ── Dashboard ───────────────────────────────────────────────────────────
+#~ msgid "Welcome back, %(name)s 👋"
+#~ msgstr "Добредојде, %(name)s 👋"
+
+#~ msgid "Here's your financial overview"
+#~ msgstr "Еве го твојот финансиски преглед"
+
+#~ msgid "Net Worth"
+#~ msgstr "Вкупен имот"
+
+#~ msgid "Savings Rate"
+#~ msgstr "Стапка на штедење"
+
+#~ msgid "this month"
+#~ msgstr "овој месец"
+
+#~ msgid "of income"
+#~ msgstr "од приходот"
+
+#~ msgid "Income vs Expenses — last 6 months"
+#~ msgstr "Приходи vs Расходи — последни 6 месеци"
+
+#~ msgid "Spending by category"
+#~ msgstr "Трошење по категорија"
+
+#~ msgid "Recent Transactions"
+#~ msgstr "Последни трансакции"
+
+#~ msgid "No transactions yet."
+#~ msgstr "Нема трансакции сè уште."
+
+#~ msgid "No budgets this month."
+#~ msgstr "Нема буџети овој месец."
+
+#~ msgid "Add one"
+#~ msgstr "Додај"
+
+#~ msgid "↑ updated today"
+#~ msgstr "↑ ажурирано денес"
+
+#~ msgid "Totals"
+#~ msgstr "Вкупно"
+
+#~ msgid "Assets"
+#~ msgstr "Имот"
+
+#~ msgid "Liabilities"
+#~ msgstr "Долгови"
+
+#~ msgid "↑ this month"
+#~ msgstr "↑ овој месец"
+
+#~ msgid "Account Name"
+#~ msgstr "Име на сметката"
+
+#~ msgid "Opening Balance"
+#~ msgstr "Почетно салдо"
+
+#~ msgid "Currency"
+#~ msgstr "Валута"
+
+#~ msgid "Color"
+#~ msgstr "Боја"
+
+#~ msgid "Save Account"
+#~ msgstr "Зачувај сметка"
+
+#~ msgid "Add Transaction"
+#~ msgstr "Додај трансакција"
+
+#~ msgid "Save Transaction"
+#~ msgstr "Зачувај трансакција"
+
+#~ msgid "of"
+#~ msgstr "од"
+
+#~ msgid "No budgets for"
+#~ msgstr "Нема буџети за"
+
+#~ msgid "Monthly Limit"
+#~ msgstr "Месечен лимит"
+
+#~ msgid "Month"
+#~ msgstr "Месец"
+
+#~ msgid "No savings goals yet."
+#~ msgstr "Нема цели за штедење сè уште."
+
+#~ msgid "Goal Name"
+#~ msgstr "Име на цел"
+
+#~ msgid "Icon (emoji)"
+#~ msgstr "Икона (emoji)"
+
+#~ msgid "Deadline"
+#~ msgstr "Краен рок"
+
+#~ msgid "Target Amount"
+#~ msgstr "Целен износ"
+
+#~ msgid "Already Saved"
+#~ msgstr "Веќе заштедено"
+
+#~ msgid "Save Goal"
+#~ msgstr "Зачувај цел"
+
+# ── Shared / Forms ───────────────────────────────────────────────────────
+#~ msgid "← Back"
+#~ msgstr "← Назад"
+
+#~ msgid "Please fix the errors above."
+#~ msgstr "Поправи ги грешките погоре."
+
+#~ msgid "No email added"
+#~ msgstr "Нема додадена е-пошта"
+
+#~ msgid "Download a copy of your transactions as a CSV spreadsheet."
+#~ msgstr "Преземи копија од трансакциите како CSV табела."
+
+#~ msgid ""
+#~ "Balance history will be shown here once historical snapshots are available. "
+#~ "Current totals are calculated from your accounts and transactions."
+#~ msgstr ""
+#~ "Историјата на салдото ќе се прикажува тука кога ќе има достапни претходни "
+#~ "пресечни состојби. Тековните вкупни износи се пресметуваат од сметките и "
+#~ "трансакциите."
+
+#~ msgid ""
+#~ "Enter the limit in MKD. The budget overview converts it to your display "
+#~ "currency."
+#~ msgstr ""
+#~ "Внеси го лимитот во MKD. Прегледот на буџетот го конвертира во избраната "
+#~ "валута за приказ."
+
+#~ msgid "Budget limits are stored in MKD; displayed totals are converted to"
+#~ msgstr ""
+#~ "Лимитите на буџетите се чуваат во MKD; прикажаните вкупни износи се "
+#~ "конвертираат во"
+
+#~ msgid "budget"
+#~ msgstr "буџет"
+
+#~ msgid "Edit Budget"
+#~ msgstr "Уреди буџет"
+
+#~ msgid "PERSONAL FINANCE OVERVIEW"
+#~ msgstr "ПРЕГЛЕД НА ЛИЧНИТЕ ФИНАНСИИ"
+
+#~ msgid "All active accounts converted to"
+#~ msgstr "Сите активни сметки се конвертирани во"
+
+#~ msgid "Net income as a share of income"
+#~ msgstr "Нето приход како дел од вкупниот приход"
+
+#~ msgid "Income and expenses over the last six months ·"
+#~ msgstr "Приходи и расходи во последните шест месеци ·"
+
+#~ msgid "No expenses recorded this month yet."
+#~ msgstr "Сè уште нема евидентирани расходи за овој месец."
+
+#~ msgid "Stay aware of your monthly limits"
+#~ msgstr "Следи ги месечните лимити"
+
+#~ msgid "No budgets for this month yet."
+#~ msgstr "Сè уште нема буџети за овој месец."
+
+#~ msgid "No transactions yet. Add one to get started."
+#~ msgstr "Сè уште нема трансакции. Додај трансакција за да започнеш."
+
+#~ msgid "Small steps toward what matters to you"
+#~ msgstr "Мали чекори кон она што ти е важно"
+
+#~ msgid ""
+#~ "Enter the amount in the currency of the selected account. Financial "
+#~ "summaries and reports convert amounts to your selected display currency "
+#~ "before presenting totals."
+#~ msgstr ""
+#~ "Внеси го износот во валутата на избраната сметка. Финансиските прегледи и "
+#~ "извештаи ги конвертираат износите во избраната валута пред да ги прикажат "
+#~ "вкупните вредности."
+
+#~ msgid ""
+#~ "Goal amounts are entered in MKD and displayed in your selected currency."
+#~ msgstr ""
+#~ "Износите на целите се внесуваат во MKD и се прикажуваат во избраната валута."
+
+#~ msgid "Here is how your money is doing this month."
+#~ msgstr "Еве како стојат твоите финансии овој месец."
+
+#~ msgid "Budget limit exceeded"
+#~ msgstr "Надминат е буџетскиот лимит"
+
+#~ msgid "Budget getting close"
+#~ msgstr "Се приближуваш до лимитот на буџетот"
+
+#~ msgid "Expenses are higher than income"
+#~ msgstr "Расходите се поголеми од приходите"
+
+#~ msgid "Review this month’s cash flow"
+#~ msgstr "Провери го текот на парите овој месец"
+
+#~ msgid "Welcome back, %(name)s"
+#~ msgstr "Добредојде, %(name)s"
+
+# Additional Moneta UI translations
+#~ msgid "budget total"
+#~ msgstr "вкупно за буџетот"
+
+#~ msgid "ACCOUNT BREAKDOWN"
+#~ msgstr "РАСПРЕДЕЛБА НА СМЕТКИ"
+
+#~ msgid "Active goals"
+#~ msgstr "Активни цели"
+
+#~ msgid "Add an account to see your breakdown."
+#~ msgstr "Додај сметка за да ја видиш распределбата."
+
+#~ msgid "Add savings goal"
+#~ msgstr "Додај цел за штедење"
+
+#~ msgid "All accounts"
+#~ msgstr "Сите сметки"
+
+#~ msgid "Assets minus liabilities across accounts included in your net worth."
+#~ msgstr "Средства минус обврски на сметките вклучени во нето-вредноста."
+
+#~ msgid "Create budget"
+#~ msgstr "Креирај буџет"
+
+#~ msgid "Every step counts"
+#~ msgstr "Секој чекор е важен"
+
+#~ msgid "Getting close"
+#~ msgstr "Се приближуваш до лимитот"
+
+#~ msgid "Goal symbol"
+#~ msgstr "Симбол за целта"
+
+#~ msgid "Grouped by account type. Select a group to expand or collapse it."
+#~ msgstr ""
+#~ "Групирано според тип на сметка. Избери група за да ја прошириш или собереш."
+
+#~ msgid ""
+#~ "Keep an eye on your category progress to stay within your monthly plan."
+#~ msgstr ""
+#~ "Следи го напредокот по категории за да останеш во рамките на месечниот план."
+
+#~ msgid "Keep going"
+#~ msgstr "Продолжи така"
+
+#~ msgid "MONTHLY OVERVIEW"
+#~ msgstr "МЕСЕЧЕН ПРЕГЛЕД"
+
+#~ msgid "NET WORTH"
+#~ msgstr "НЕТО-ВРЕДНОСТ"
+
+#~ msgid "QUICK INSIGHT"
+#~ msgstr "КРАТОК УВИД"
+
+#~ msgid "Review your limits"
+#~ msgstr "Провери ги лимитите"
+
+#~ msgid "See what is spent, what remains and where to adjust."
+#~ msgstr ""
+#~ "Види колку е потрошено, колку преостанува и каде треба да направиш промени."
+
+#~ msgid "Small steps add up"
+#~ msgstr "Малите чекори се собираат"
+
+#~ msgid "Total spending compared with your planned limits."
+#~ msgstr "Вкупно трошење во споредба со планираните лимити."
+
+#~ msgid "Track progress toward the things you want to achieve."
+#~ msgstr "Следи го напредокот кон целите што сакаш да ги постигнеш."
+
+#~ msgid "YOUR SAVINGS PLAN"
+#~ msgstr "ТВОЈОТ ПЛАН ЗА ШТЕДЕЊЕ"
+
+#~ msgid "You"
+#~ msgstr "Ти"
+
+#~ msgid "You can use a simple symbol or leave the default."
+#~ msgstr "Можеш да користиш едноставен симбол или да го оставиш стандардниот."
+
+#~ msgid "Your spending plan"
+#~ msgstr "Твојот план за трошење"
+
+#~ msgid ""
+#~ "Your total spending has reached or passed your planned limits. Review "
+#~ "category budgets below."
+#~ msgstr ""
+#~ "Вкупното трошење ги достигна или ги надмина планираните лимити. Провери ги "
+#~ "буџетите по категории подолу."
+
+#~ msgid "planned"
+#~ msgstr "планирано"
+
+#~ msgid "spent so far"
+#~ msgstr "досега потрошено"
+
+#~ msgid "{{ count }} active account"
+#~ msgstr "{{ count }} активна сметка"
+
+#~ msgid "{{ count }} active accounts"
+#~ msgstr "{{ count }} активни сметки"

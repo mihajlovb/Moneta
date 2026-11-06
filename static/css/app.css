@@ -1,0 +1,52 @@
+/* minimal custom additions on top of Tailwind */
+.progress-bar { transition: width .4s ease; }
+.acc-section-body { display: none; }
+.acc-section.open .acc-section-body { display: block; }
+.acc-section-chevron { transition: transform .2s; display:inline-block; }
+.acc-section.open .acc-section-chevron { transform: rotate(180deg); }
+.tx-row:hover { background: rgba(99,102,241,.05); }
+select { background-image: none !important; }
+
+/* Moneta design system: accounts, budgets, goals and their forms */
+:root { --moneta-green:#287653; --moneta-green-dark:#1e6043; --moneta-ink:#17211c; --moneta-muted:#748078; }
+.page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.page-heading h1,.form-intro h1{font-size:clamp(1.65rem,2.4vw,2.1rem);line-height:1.15;font-weight:750;letter-spacing:-.035em;color:#17211c}
+.dark .page-heading h1,.dark .form-intro h1{color:#f1f5f2}
+.eyebrow{font-size:.68rem;letter-spacing:.13em;font-weight:750;color:#7b8980;margin-bottom:.4rem}
+.page-subtitle,.muted-copy{font-size:.82rem;line-height:1.55;color:#7b8980}
+.surface-card{background:#fff;border:1px solid #e6ebe7;border-radius:1.1rem;padding:1.25rem;box-shadow:0 2px 8px rgba(20,40,28,.025);min-width:0}
+.dark .surface-card{background:#1e293b;border-color:#334155}
+.summary-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:1rem}
+.account-networth{background:linear-gradient(135deg,#f4faf5 0%,#fff 78%);border-color:#dcebe0}
+.dark .account-networth{background:linear-gradient(135deg,#1d382c 0%,#1e293b 78%);border-color:#315442}
+.metric-large{font-size:clamp(1.9rem,3.2vw,2.55rem);line-height:1.1;font-weight:760;letter-spacing:-.045em;color:#17211c}
+.dark .metric-large{color:#f1f5f2}.metric-medium{font-size:1.45rem;line-height:1.2;font-weight:740;letter-spacing:-.025em}
+.metric-currency{font-size:.72rem;font-weight:600;letter-spacing:0;color:#8b978f}
+.card-heading{font-size:1.02rem;font-weight:700;letter-spacing:-.02em}
+.icon-tile{display:inline-flex;align-items:center;justify-content:center;flex:none;width:2.6rem;height:2.6rem;border-radius:.85rem;background:#eaf4ed;color:#287653}
+.dark .icon-tile{background:#244334;color:#a6d8b8}
+.icon-tile svg,.icon-button svg,.inline-icon{width:1.05rem;height:1.05rem;stroke-width:1.8}
+.inline-icon{display:inline-block;vertical-align:-.2em}
+.btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.65rem;padding:.7rem 1rem;border-radius:.8rem;font-size:.84rem;font-weight:650;transition:background .15s,border-color .15s,transform .15s}
+.btn-primary{background:#287653;color:white;border:1px solid #287653}.btn-primary:hover{background:#1e6043;transform:translateY(-1px)}
+.btn-primary svg,.btn-secondary svg{width:1rem;height:1rem}
+.btn-secondary{border:1px solid #dce4de;color:#536157;background:#fff}.btn-secondary:hover{background:#f5f8f5}
+.dark .btn-secondary{background:#1e293b;border-color:#475569;color:#d4ddd6}
+.section-heading{font-size:1.05rem;font-weight:730;letter-spacing:-.02em;margin-bottom:.2rem}
+.stat-pair{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}.stat-pair>div{padding:.8rem;border:1px solid #e5ece7;border-radius:.8rem;display:flex;flex-direction:column;gap:.35rem}.stat-pair span,.stat-box span{font-size:.73rem;color:#7b8980}.stat-pair strong{font-size:.94rem}
+.dark .stat-pair>div{border-color:#334155}.pill-neutral{border:1px solid #dce4de;background:#f7faf7;border-radius:999px;padding:.3rem .65rem;font-size:.72rem;font-weight:650;color:#66736a;white-space:nowrap}
+.dark .pill-neutral{background:#273449;border-color:#475569;color:#cbd5e1}
+.account-row{display:flex;align-items:center;gap:.85rem;padding:.9rem 1.2rem;border-bottom:1px solid #edf1ed;transition:background .15s}.account-row:last-child{border-bottom:0}.account-row:hover{background:#f8faf8}.dark .account-row{border-color:#334155}.dark .account-row:hover{background:#273449}
+.account-avatar{width:2.65rem;height:2.65rem;border-radius:.9rem;display:flex;align-items:center;justify-content:center;flex:none;background:color-mix(in srgb,var(--account-color) 14%,white);color:var(--account-color);font-weight:750}
+.icon-button{display:inline-flex;align-items:center;justify-content:center;width:2.15rem;height:2.15rem;border-radius:.7rem;color:#7b8980;border:1px solid transparent;transition:.15s;flex:none}.icon-button:hover{background:#edf5ef;color:#287653;border-color:#dcebe0}.icon-button.danger:hover{background:#fff1f1;color:#c24141;border-color:#fee2e2}.dark .icon-button:hover{background:#244334;color:#a6d8b8}
+.empty-state{grid-column:1/-1;text-align:center;padding:3.5rem 1.25rem;border:1px dashed #d6e1d8;border-radius:1.1rem;background:rgba(255,255,255,.65)}.dark .empty-state{background:#1e293b;border-color:#475569}.empty-icon{display:inline-flex;align-items:center;justify-content:center;width:3.5rem;height:3.5rem;border-radius:1.15rem;background:#eaf4ed;color:#287653;margin-bottom:1rem}.empty-icon svg{width:1.55rem;height:1.55rem}.empty-state h3{font-size:1.05rem;font-weight:730;margin-bottom:.4rem}.empty-state p{font-size:.84rem;color:#7b8980;max-width:27rem;margin:0 auto 1.2rem;line-height:1.6}
+.category-avatar,.goal-avatar{width:2.7rem;height:2.7rem;display:flex;align-items:center;justify-content:center;border-radius:.9rem;flex:none;background:#eaf4ed;color:#287653}.category-avatar{background:color-mix(in srgb,var(--category-color) 15%,white);color:var(--category-color)}.category-avatar svg,.goal-avatar svg{width:1.2rem;height:1.2rem}.budget-card,.goal-card{display:flex;flex-direction:column}.goal-complete{display:flex;align-items:center;gap:.45rem;padding:.65rem .75rem;border-radius:.75rem;background:#edf7ef;color:#287653;font-size:.76rem;font-weight:650}.dark .goal-complete{background:#244334;color:#a6d8b8}
+.stat-box{padding:.8rem;border:1px solid #e5ece7;border-radius:.8rem;display:flex;flex-direction:column;gap:.3rem}.stat-box strong{font-size:1rem}.form-page{max-width:760px;margin:0 auto}.back-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:600;color:#718078;margin-bottom:1.25rem}.back-link:hover{color:#287653}.back-link svg{width:1rem;height:1rem}.form-intro{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}.form-intro .icon-tile{width:3.25rem;height:3.25rem}.form-intro .icon-tile svg{width:1.45rem;height:1.45rem}.form-card{padding:clamp(1.1rem,3vw,1.75rem)}.form-section-title{padding-bottom:1rem;margin-bottom:1.25rem;border-bottom:1px solid #e8eee9}.form-section-title h2{font-size:1rem;font-weight:730}.form-section-title p{font-size:.8rem;color:#7b8980;margin-top:.3rem;line-height:1.5}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem}.form-field{min-width:0;display:flex;flex-direction:column;gap:.45rem}.form-field-full{grid-column:1/-1}.form-field label{font-size:.8rem;font-weight:650;color:#39483e}.dark .form-field label{color:#d7e1d9}.label-unit,.optional-label{font-size:.68rem;font-weight:600;color:#87938b;margin-left:.25rem}.field-help{font-size:.72rem;color:#7b8980;line-height:1.45}.field-error{font-size:.75rem;color:#c24141}.form-error{padding:.8rem 1rem;border-radius:.75rem;background:#fff1f1;color:#b42323;border:1px solid #fecaca;font-size:.82rem;margin-bottom:1rem}.color-field{display:flex;align-items:center;gap:.75rem;min-height:2.8rem}.color-field input[type=color]{width:3.2rem;height:2.6rem;border:1px solid #dce4de;border-radius:.7rem;padding:.2rem;background:white}.setting-check{display:flex;align-items:center;gap:.75rem;padding:1rem;border:1px solid #e2eae3;background:#f8faf8;border-radius:.85rem;cursor:pointer}.dark .setting-check{background:#273449;border-color:#475569}.setting-check input{width:1rem;height:1rem;accent-color:#287653}.setting-check span{display:flex;flex-direction:column;gap:.2rem}.setting-check strong{font-size:.82rem}.setting-check small{font-size:.73rem;color:#7b8980}.form-note{display:flex;align-items:flex-start;gap:.65rem;padding:.8rem .9rem;margin-top:1.2rem;background:#f2f8f3;border:1px solid #e0eee2;border-radius:.8rem;color:#5c7563;font-size:.76rem;line-height:1.5}.form-note svg{width:1rem;height:1rem;flex:none;margin-top:.1rem}.dark .form-note{background:#20372a;border-color:#315442;color:#b8d4c0}.form-actions{display:flex;justify-content:flex-end;gap:.65rem;padding-top:1.35rem;margin-top:1.25rem;border-top:1px solid #e8eee9}
+/* Consistent form controls, including Django-rendered widgets */
+.form-card input:not([type=checkbox]):not([type=color]),.form-card select,.form-card textarea{display:block;width:100%;min-height:2.8rem;padding:.7rem .85rem;border:1px solid #dce4de;border-radius:.75rem;background:#fbfcfb;color:#17211c;font:inherit;font-size:.85rem;outline:none;transition:border-color .15s,box-shadow .15s}.form-card input[type=month],.form-card input[type=date]{min-height:2.8rem}.form-card input:focus,.form-card select:focus,.form-card textarea:focus{border-color:#5d9b76;box-shadow:0 0 0 3px rgba(40,118,83,.12)}.form-card input::placeholder,.form-card textarea::placeholder{color:#9aa59d}.dark .form-card input:not([type=checkbox]):not([type=color]),.dark .form-card select,.dark .form-card textarea{background:#273449;border-color:#475569;color:#f1f5f2}
+@media(max-width:700px){.summary-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-field-full{grid-column:auto}.page-heading{align-items:flex-start}.page-heading>.btn-primary{width:100%}.form-actions{flex-direction:column-reverse}.form-actions>*{width:100%}.account-row{padding:.8rem}.account-row .muted-copy{font-size:.7rem}}
+
+/* Payment instruments are nested under their account, not treated as a second balance. */
+#debit-card-option[hidden] {
+  display: none !important;
+}

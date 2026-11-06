@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load i18n l10n %}
+{% block title %}{% trans "Reports" %} · Moneta{% endblock %}
+{% block content %}
+<div class="flex items-center justify-between mb-5">
+  <div>
+    <h1 class="text-2xl font-bold">{% trans "Reports" %}</h1>
+    <p class="text-sm text-slate-400 mt-0.5">{{ month|date:"F Y" }}</p>
+  </div>
+</div>
+
+<!-- Cash flow bar chart -->
+<div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm mb-4">
+  <h2 class="text-base font-semibold mb-1">{% trans "Cash Flow" %}</h2>
+  <p class="text-xs text-slate-400 mb-4">{% trans "Monthly income and expenses — last 12 months ·" %} {{ display_currency }}</p>
+  <canvas id="cashFlowChart" height="140"></canvas>
+  <div class="flex flex-wrap gap-x-6 gap-y-3 mt-4 justify-center">
+    {% for t in trend %}
+    <div class="text-center min-w-[40px]">
+      <p class="text-xs text-slate-400">{{ t.month|date:"M" }}</p>
+      {% with net=t.income|add:"-0" %}
+      <p class="text-xs font-semibold {% if t.income > t.expense %}text-emerald-500{% else %}text-red-500{% endif %}">
+        {% if t.income > t.expense %}+{% else %}−{% endif %}
+      </p>
+      {% endwith %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Activity section: spending by cat + cumulative line -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+
+  <!-- Spending by category list -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <h2 class="text-sm font-semibold mb-4">{% trans "Spending by Category" %}</h2>
+    {% if by_cat %}
+    {% with max_val=by_cat.0.total %}
+    <div class="space-y-3">
+      {% for c in by_cat %}
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0" style="background:{{ c.category__color|default:'#E2E8F0' }}33">
+          {{ c.category__icon|default:"🏷️" }}
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-center mb-1">
+            <span class="text-xs font-medium truncate">{{ c.category__name|default:"Other" }}</span>
+            <span class="text-xs font-bold text-slate-700 dark:text-slate-200 ml-2 shrink-0">{{ c.total|floatformat:"0g" }} {{ display_currency }}</span>
+          </div>
+          <div class="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+            <div class="h-full rounded-full" style="width:{% widthratio c.total max_val 100 %}%;background:{{ c.category__color|default:'#6366F1' }}"></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endwith %}
+    {% else %}
+    <p class="text-sm text-slate-400 text-center py-8">{% trans "No spending data this month." %}</p>
+    {% endif %}
+  </div>
+
+  <!-- Cumulative net spending line chart -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <h2 class="text-sm font-semibold mb-1">{% trans "Net Spending" %}</h2>
+    <p class="text-xs text-slate-400 mb-4">{% trans "Cumulative this month" %}</p>
+    <canvas id="netChart" height="200"></canvas>
+  </div>
+</div>
+
+<!-- Donut breakdown -->
+<div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+  <h2 class="text-sm font-semibold mb-4">{% trans "Breakdown" %}</h2>
+  <div class="flex flex-col lg:flex-row gap-6 items-center">
+    <canvas id="donutBreakdown" style="max-width:220px;max-height:220px"></canvas>
+    <div class="flex-1 space-y-2 w-full">
+      {% for c in by_cat %}
+      <div class="flex items-center justify-between text-sm">
+        <span class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full inline-block shrink-0" style="background:{{ c.category__color|default:'#94A3B8' }}"></span>
+          {{ c.category__icon|default:"🏷️" }} {{ c.category__name|default:"Other" }}
+        </span>
+        <div class="flex items-center gap-3">
+          <span class="text-slate-400 text-xs">{{ c.total|floatformat:"0g" }} {{ display_currency }}</span>
+          <span class="text-xs font-semibold w-10 text-right text-slate-500">
+            {% if by_cat %}{% widthratio c.total by_cat.0.total 100 %}%{% endif %}
+          </span>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-sm text-slate-400">{% trans "No data." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>{% localize off %}
+const dk=document.documentElement.classList.contains('dark');
+const gc=dk?'rgba(255,255,255,.05)':'rgba(0,0,0,.04)';
+const tc=dk?'#94A3B8':'#64748B';
+
+// Cash flow
+new Chart(document.getElementById('cashFlowChart'),{type:'bar',
+  data:{labels:[{% for t in trend %}"{{ t.month|date:'M Y' }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+    datasets:[
+      {label:'{% trans "Income" %} ({{ display_currency }})',data:[{% for t in trend %}{{ t.income }}{% if not forloop.last %},{% endif %}{% endfor %}],backgroundColor:'rgba(16,185,129,.25)',borderColor:'#10B981',borderWidth:1.5,borderRadius:4},
+      {label:'{% trans "Expenses" %} ({{ display_currency }})',data:[{% for t in trend %}{{ t.expense }}{% if not forloop.last %},{% endif %}{% endfor %}],backgroundColor:'rgba(239,68,68,.25)',borderColor:'#EF4444',borderWidth:1.5,borderRadius:4}
+    ]},
+  options:{responsive:true,plugins:{legend:{labels:{color:tc,font:{size:11}}}},scales:{x:{ticks:{color:tc,font:{size:10}},grid:{color:gc}},y:{ticks:{color:tc},grid:{color:gc}}}}
+});
+
+// Net cumulative
+const cumData={labels:[{% for d in cumulative %}"{{ d.date }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+               values:[{% for d in cumulative %}{{ d.net }}{% if not forloop.last %},{% endif %}{% endfor %}]};
+const lineColor=cumData.values.length&&cumData.values[cumData.values.length-1]>=0?'#10B981':'#EF4444';
+new Chart(document.getElementById('netChart'),{type:'line',
+  data:{labels:cumData.labels,datasets:[{data:cumData.values,borderColor:lineColor,borderWidth:2,fill:true,backgroundColor:lineColor==='#10B981'?'rgba(16,185,129,.08)':'rgba(239,68,68,.08)',pointRadius:0,tension:.3}]},
+  options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.raw.toLocaleString('mk',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' {{ display_currency }}'}}},scales:{x:{ticks:{color:tc,maxTicksLimit:8,font:{size:10}},grid:{color:gc}},y:{ticks:{color:tc},grid:{color:gc}}}}
+});
+
+// Donut
+new Chart(document.getElementById('donutBreakdown'),{type:'doughnut',
+  data:{labels:[{% for c in by_cat %}"{{ c.category__icon|default:'🏷️' }} {{ c.category__name|default:'Other' }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+    datasets:[{data:[{% for c in by_cat %}{{ c.total }}{% if not forloop.last %},{% endif %}{% endfor %}],
+      backgroundColor:[{% for c in by_cat %}"{{ c.category__color|default:'#94A3B8' }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+      borderWidth:0,hoverOffset:4}]},
+  options:{responsive:true,cutout:'72%',plugins:{legend:{display:false}}}
+});
+{% endlocalize %}</script>
+{% endblock %}

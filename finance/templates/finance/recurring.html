@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load i18n l10n %}
+{% block title %}{% trans "Recurring" %} · Moneta{% endblock %}
+{% block content %}
+<div class="flex items-center justify-between mb-5">
+  <div>
+    <h1 class="text-2xl font-bold">{% trans "Recurring Expenses" %}</h1>
+    <p class="text-sm text-slate-400 mt-0.5">{% trans "Subscriptions and regular payments" %}</p>
+  </div>
+  <a href="{% url 'finance:transaction_add' %}" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors">+ {% trans "Add" %}</a>
+</div>
+
+<!-- Summary card -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">{% trans "Monthly recurring" %}</p>
+    <p class="text-2xl font-bold text-red-500">
+      {% with total=0 %}
+      {{ recurring|length }}
+      {% endwith %}
+    </p>
+    <p class="text-xs text-slate-400 mt-0.5">{% trans "active subscriptions" %}</p>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">{% trans "Est. monthly cost" %}</p>
+    <p class="text-2xl font-bold text-slate-800 dark:text-slate-100" id="totalRecurring">—</p>
+    <p class="text-xs text-slate-400 mt-0.5">{% trans "based on last amounts" %}</p>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">{% trans "Next upcoming" %}</p>
+    <p class="text-2xl font-bold text-indigo-600">{{ today|date:"M j" }}</p>
+    <p class="text-xs text-slate-400 mt-0.5">{% trans "today" %}</p>
+  </div>
+</div>
+
+<!-- Calendar view + list — like the reference image -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+  <!-- Upcoming list -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+    <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
+      <h2 class="text-sm font-semibold">{% trans "Upcoming" %}</h2>
+    </div>
+    {% for t in recurring %}
+    <div class="flex items-center gap-4 px-5 py-4 border-b border-slate-100 dark:border-slate-700 last:border-0 hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+      <!-- Date circle -->
+      <div class="w-10 text-center shrink-0">
+        <div class="text-xs text-slate-400 uppercase font-semibold">{{ t.date|date:"M" }}</div>
+        <div class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-sm font-bold text-slate-700 dark:text-slate-200 mx-auto mt-0.5">{{ t.date|date:"j" }}</div>
+      </div>
+      <!-- Icon -->
+      <div class="w-10 h-10 rounded-full flex items-center justify-center text-lg shrink-0" style="background:{{ t.category.color|default:'#E2E8F0' }}22">
+        {{ t.category.icon|default:"🔁" }}
+      </div>
+      <!-- Info -->
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-semibold truncate">{{ t.merchant }}</p>
+        <p class="text-xs text-slate-400">{{ t.category.name|default:"—" }} · {% trans "Monthly" %}</p>
+      </div>
+      <!-- Amount -->
+      <div class="text-right shrink-0">
+        <p class="text-sm font-bold {% if t.type == 'expense' %}text-red-500{% else %}text-emerald-600{% endif %}">
+          {% if t.type == 'income' %}+{% else %}−{% endif %}{{ t.amount|floatformat:"2g" }}
+        </p>
+        <p class="text-xs text-slate-400">{{ t.account.currency }}</p>
+      </div>
+      <a href="{% url 'finance:transaction_edit' t.pk %}" class="w-7 h-7 flex items-center justify-center rounded-lg text-slate-300 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors text-xs">✏️</a>
+    </div>
+    {% empty %}
+    <div class="py-16 text-center">
+      <p class="text-3xl mb-3">🔁</p>
+      <p class="text-sm text-slate-400 mb-4">{% trans "No recurring transactions yet." %}</p>
+      <p class="text-xs text-slate-400 max-w-xs mx-auto">{% trans "Mark any transaction as recurring when adding it." %}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Mini calendar -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-sm font-semibold">{{ today|date:"F Y" }}</h2>
+    </div>
+    <!-- Calendar grid -->
+    <div id="calendarGrid" class="grid grid-cols-7 gap-1 text-center text-xs">
+      {% for day_name in weekdays %}
+      <div class="text-slate-400 font-semibold py-1">{{ day_name }}</div>
+      {% endfor %}
+    </div>
+    <div class="mt-4 space-y-2" id="calendarDots">
+      {% for t in recurring %}
+      <div class="flex items-center gap-2 text-xs text-slate-500">
+        <span class="w-2 h-2 rounded-full bg-indigo-400 inline-block shrink-0"></span>
+        <span>{{ t.date|date:"M j" }} — {{ t.merchant }}</span>
+        <span class="ml-auto font-semibold {% if t.type == 'expense' %}text-red-500{% else %}text-emerald-500{% endif %}">
+          {% if t.type == 'income' %}+{% else %}−{% endif %}{{ t.amount|floatformat:"0g" }}
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>{% localize off %}
+// Calculate total
+const amounts = [{% for t in recurring %}{% if t.type == 'expense' %}{{ t.amount }},{% endif %}{% endfor %}];
+const total = amounts.reduce((a,b)=>a+b,0);
+document.getElementById('totalRecurring').textContent = total.toLocaleString('mk',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+// Build calendar
+const today = new Date({{ today|date:"Y" }}, {{ today|date:"n"|add:"-1" }}, 1);
+const daysInMonth = new Date(today.getFullYear(), today.getMonth()+1, 0).getDate();
+let startDay = (new Date(today.getFullYear(), today.getMonth(), 1).getDay() + 6) % 7;
+const recurringDays = new Set([{% for t in recurring %}{{ t.date|date:"j" }},{% endfor %}]);
+const grid = document.getElementById('calendarGrid');
+// Remove the day name placeholders — replace with real calendar
+grid.innerHTML = '';
+['M','T','W','T','F','S','S'].forEach(d=>{
+  const el = document.createElement('div');
+  el.className='text-slate-400 font-semibold py-1';
+  el.textContent=d; grid.appendChild(el);
+});
+for(let i=0;i<startDay;i++){
+  const el=document.createElement('div'); el.className='py-1'; grid.appendChild(el);
+}
+const todayNum = {{ today|date:"j" }};
+for(let d=1;d<=daysInMonth;d++){
+  const el=document.createElement('div');
+  el.className='py-1 relative';
+  const inner=document.createElement('div');
+  inner.textContent=d;
+  inner.className='w-8 h-8 rounded-full flex items-center justify-center mx-auto text-xs font-medium ';
+  if(d===todayNum) inner.className+='bg-indigo-600 text-white';
+  else if(recurringDays.has(d)) inner.className+='bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 font-bold ring-2 ring-indigo-300';
+  else inner.className+='text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700';
+  el.appendChild(inner);
+  if(recurringDays.has(d) && d!==todayNum){
+    const dot=document.createElement('div');
+    dot.className='w-1 h-1 rounded-full bg-indigo-400 mx-auto mt-0.5'; el.appendChild(dot);
+  }
+  grid.appendChild(el);
+}
+{% endlocalize %}</script>
+{% endblock %}
